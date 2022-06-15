@@ -56,6 +56,15 @@ public class FrontController extends HttpServlet {
 		map.put("/bookDetails.do", new BookDetailsCommand());
 		map.put("/bookCart.do", new BookCartCommand());
 		map.put("/rentalBook.do", new RentalBookCommand());
+		
+		//QnA
+		map.put("/qnaInputForm.do", new QnaInputForm());
+		map.put("/qnaInput.do", new QnaInput());
+		map.put("/qnaList.do", new QnaList());
+		map.put("/qnaSelect.do", new QnaSelect());
+		map.put("/ajaxSearchList.do", new AjaxSearchList());
+		
+		
 		/*
 		 * map.put("/mypageHome.do", new MypageHomeCommand()); map.put("/myInfo.do", new
 		 * MyInfoCommand()); map.put("/nowRentalList.do", new NowRentalListCommand());
@@ -79,6 +88,11 @@ public class FrontController extends HttpServlet {
 		 map.put("/memberList.do", new MemberList());
 		  map.put("/rentalChart.do", new RentalChart());
 		 
+		  //마이페이지
+		  map.put("/mypageHome.do", new MypageHomeCommand());
+		  map.put("/myInfo.do", new MyInfoCommand());
+		  map.put("/nowRentalList.do", new NowRentalListCommand());
+		  map.put("/myRentalList.do", new MyRentalListCommand());
 
 	}
 
@@ -88,10 +102,8 @@ public class FrontController extends HttpServlet {
 		String uri = request.getRequestURI(); // 요청 URI 구함
 		String contextPath = request.getContextPath(); // 루트 디렉토리 정보
 		String page = uri.substring(contextPath.length());; // contextPath.length()(<-이걸빼면) 이 다음부터는 들어가는게 페이지다. ,, 실제 요청 명령을 받음
-		
 		Command command = map.get(page); //맵에서 키를 던져주니 나한테 던져주는건 밸류(커맨드)를 돌아온다 즉 커맨드를 구한다
 		String viewPage = command.exec(request, response); // exec를 찾을때 맨끝에 String이 붙어서 나오는데 돌려받는값이 스트링인걸 알수있다.
-	
 		if(!viewPage.endsWith(".do")) {			
 			viewPage = viewPage + ".tiles";
 		

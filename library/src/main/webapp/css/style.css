@@ -1001,6 +1001,7 @@ ul, ol {
 	padding-bottom: 50px;
 }
 
+
 .from-blog .blog__item {
 	margin-bottom: 30px;
 }
@@ -3041,6 +3042,18 @@ ul, ol {
 	.over_hid {
 		overflow: hidden;
 	}
+}
+
+
+.logout {
+	border: 1px solid #90e0f2;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	background-color: #90e0f2;
+	border-radius : 10px;
+	  
 }
 
 /* Small Device = 320px */

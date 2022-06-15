@@ -18,16 +18,20 @@ public class Login implements Command{
 		MemberVO vo = new MemberVO();
 		vo.setId(request.getParameter("id"));
 		vo.setPassword(request.getParameter("password"));
+		vo.setName(request.getParameter("name"));
+		vo.setTel(request.getParameter("tel"));
+		vo.setAddress(request.getParameter("address"));
 		vo = dao.MemberSelect(vo);
 		
 		
 		if(vo != null) {
 			session.setAttribute("id", vo.getId());
+			session.setAttribute("password", vo.getPassword());
 			session.setAttribute("name", vo.getName());
-			/* request.setAttribute("message", vo.getName()+"님 환영합니다!"); */
+			session.setAttribute("tel", vo.getTel());
+			session.setAttribute("address", vo.getAddress());
 			return "home/home";
 		}else {
-			/* request.setAttribute("message", "아이디 또는 패스워드가 일치하지 않습니다."); */
 			
 		}
 		
