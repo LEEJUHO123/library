@@ -56,6 +56,15 @@ public class FrontController extends HttpServlet {
 		map.put("/bookDetails.do", new BookDetailsCommand());
 		map.put("/bookCart.do", new BookCartCommand());
 		map.put("/rentalBook.do", new RentalBookCommand());
+		
+		//QnA
+		map.put("/qnaInputForm.do", new QnaInputForm());
+		map.put("/qnaInput.do", new QnaInput());
+		map.put("/qnaList.do", new QnaList());
+		map.put("/qnaSelect.do", new QnaSelect());
+		map.put("/ajaxSearchList.do", new AjaxSearchList());
+		
+		
 		/*
 		 * map.put("/mypageHome.do", new MypageHomeCommand()); map.put("/myInfo.do", new
 		 * MyInfoCommand()); map.put("/nowRentalList.do", new NowRentalListCommand());
