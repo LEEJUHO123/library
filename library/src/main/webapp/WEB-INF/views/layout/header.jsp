@@ -16,11 +16,20 @@
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-				<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>&nbsp;&nbsp;&nbsp;
-				<li><a href="loginForm.do"><i class="fa fa-user"></i> Login</a></li>
-				<li><a href="#"><i class="fa fa-user-pen"></i> join</a></li>
-			</ul>			
-		</div>		
+				<c:if test="${not empty id }">
+					<ul>
+						<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>						
+						<li><a href="#">마이페이지</a>
+						<li><a href="logout.do">Logout</a></li>
+					</ul>
+				</c:if>
+				<c:if test="${empty id }">
+					<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
+					<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>
+				</c:if>
+
+			</ul>
+		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
 				<li class="active">
@@ -29,10 +38,13 @@
 					<ul class="header__menu__dropdown">
 						<li><a href="bookDetails.do">도서상세</a></li>
 						<li><a href="bookCart.do">담아두기</a></li>
-						<li><a href="rentalBook.do">대여하기</a></li>											
+						<li><a href="rentalBook.do">대여하기</a></li>
 					</ul></li>
 				<li><a href="contact.do">Contact</a></li>
 				<li><a href="#">QnA</a></li>
+				<c:if test="${id eq 'abc@abc.com' }">
+					<li><a href="#">관리자메뉴</a></li>
+				</c:if>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
@@ -51,6 +63,40 @@
 	<!-- Humberger End -->
 
 	<header class="header">
+		<div class="header__top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="header__top__left">
+							<ul>
+								<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+								<li>Free Shipping for all Order of $99</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="header__cart">
+							<c:if test="${not empty id }">
+								<ul>
+									<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
+									<li>${name }님
+									<li><a href="#">마이페이지</a>
+									<li><a href="logout.do">Logout</a></li>
+								</ul>
+							</c:if>
+							<c:if test="${empty id }">
+								<div class="header__top__right__auth">
+									<ul>
+										<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
+										<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>
+									</ul>
+								</div>
+							</c:if>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
@@ -58,7 +104,7 @@
 						<a href="/library"><img src="img/logo.png" alt=""></a>
 					</div>
 				</div>
-				<div class="col-lg-6">
+				<div class="col-lg-9">
 					<nav class="header__menu">
 						<ul>
 							<li class="active">
@@ -71,31 +117,11 @@
 								</ul></li>
 							<li><a href="contact.do">Contact</a></li>
 							<li><a href="#">QnA</a></li>
-							<c:if test="${author eq 'ADMIN' }">
-								<li><a href="#">관리자메뉴</a></li>
+							<c:if test="${id eq 'abc@abc.com' }">
+								<li><a href="admin.do">관리자메뉴</a></li>
 							</c:if>
 						</ul>
 					</nav>
-				</div>
-				<div class="col-lg-3">
-					<div class="header__cart">
-						<c:if test="${not empty id }">
-							<ul>
-								<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
-								<li><a href="#">마이페이지</a>
-								<li>${name }
-								<li><a href="logout.do">Logout</a>
-							</ul>
-						</c:if>
-						<c:if test="${empty id }">
-							<div class="header__top__right__auth">
-								<ul>
-									<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
-									<li><a href="#"><i class="fa fa-user-pen"></i>Join</a></li>
-								</ul>
-							</div>
-						</c:if>
-					</div>
 				</div>
 			</div>
 			<div class="humberger__open">

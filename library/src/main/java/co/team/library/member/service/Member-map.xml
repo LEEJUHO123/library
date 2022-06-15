@@ -14,6 +14,16 @@
 		</if>
 	</select>
 
+	<select id="memberBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
+      SELECT * FROM MEMBER
+      WHERE BLACK = 1
+   </select>
+   
+<!--    <select id="addBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
+     SELECT * FROM MEMBER
+      WHERE  NONPAYMENT = 2
+   
+   </select> -->
 
 
 	<insert id="memberInsert">
@@ -52,12 +62,8 @@
 		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, 0)
 	</insert>
 	
-<!-- 	 <select id="memberBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
-      SELECT * FROM MEMBER
-      WHERE BLACK = 1
-   </select>
    
-     <update id="memberUpdateBlack" parameterType="co.team.library.member.vo.MemberVO">
+<!--      <update id="memberUpdateBlack" parameterType="co.team.library.member.vo.MemberVO">
    UPDATE MEMBER SET BLACK = 1 WHERE ID=#{id}
    </update>
    
