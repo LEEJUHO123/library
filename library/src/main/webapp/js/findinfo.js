@@ -7,7 +7,7 @@ function id_search() {
 		 }
 
 		 if (frm.tel.value.length != 13) {
-			  alert("핸드폰번호를 정확하게 입력해주세요");
+			  alert("휴대폰번호를 정확하게 입력해주세요");
 			  return;
 		 }
 

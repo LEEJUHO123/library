@@ -18,11 +18,8 @@ public class AddBlacklist implements Command {
 		// 블랙리스트 추가
 		MemberService dao = new MemberServiceImpl();
 		List<MemberVO> members = new ArrayList<MemberVO>();
-		members = dao.memberSelectList();
-		
-		if(members.getrentcount == 5) {			
-			request.setAttribute("members", members);
-		}
+		members = dao.memberSelectList();			
+		request.setAttribute("members", members);
 		return "administrator/addBlacklist";
 	}
 

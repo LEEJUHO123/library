@@ -18,9 +18,9 @@ public class Blacklist implements Command {
 		// 블랙리스트 확인
 		MemberService dao = new MemberServiceImpl();
 		List<MemberVO> members = new ArrayList<MemberVO>();
-		members = dao.memberUpdateBlack();
+		members = dao.memberBlackSelectList();
 		request.setAttribute("members", members);
-		return "administrator/blacklist";
+		return "administrator/blackList";
 	}
 
 }

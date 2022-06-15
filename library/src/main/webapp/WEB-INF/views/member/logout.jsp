@@ -11,18 +11,18 @@
 	
 </div>
 <script>
-var logInOut = function(){
+/* var logInOut = function(){
  var Logout = document.getElementById('Logout');
 
 if(Logout != null){
 Logout.onclick = function(){ 
-	if( confirm("정말 로그아웃 하시겠습니까?")){
+	if( confirm("정말 로그아웃 하시겠습니까?")){ */
 	alert("로그아웃되었습니다");
 	location.href = 'loginForm.do';
-	}
+/* 	}
  }
 } 
-}
+} */
 </script>
 </body>
 </html>
