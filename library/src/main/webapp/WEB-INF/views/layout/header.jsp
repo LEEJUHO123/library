@@ -32,7 +32,11 @@
 						<li><a href="rentalBook.do">대여하기</a></li>											
 					</ul></li>
 				<li><a href="contact.do">Contact</a></li>
-				<li><a href="#">QnA</a></li>
+				<li><a href="#">Q&A</a>
+					<ul class="header__menu__dropdown">
+					<li><a href="qnaList.do">문의목록</a></li>
+					<li><a href="qnaInputForm.do">문의작성</a></li>
+				</ul></li>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
@@ -70,7 +74,11 @@
 									<li><a href="rentalBook.do">대여하기</a></li>
 								</ul></li>
 							<li><a href="contact.do">Contact</a></li>
-							<li><a href="#">QnA</a></li>
+							<li><a href="#">Q&A</a>
+								<ul class="header__menu__dropdown">
+									<li><a href="qnaList.do">문의목록</a></li>
+									<li><a href="qnaInputForm.do">문의작성</a></li>
+								</ul></li>
 							<c:if test="${author eq 'ADMIN' }">
 								<li><a href="#">관리자메뉴</a></li>
 							</c:if>
