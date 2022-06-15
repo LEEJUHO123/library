@@ -10,12 +10,12 @@
 </head>
 <body>
 	...
-	<div class="container" align="center">
+	<div class="container" align="center" >
 		<div class="col-lg-4"></div>
 		<div class="col-lg-4">
 			<div class="jumbotron" style="padding-top: 20px;">
-				<form method="post" >
-					<h3 style="text-align: center;">회원가입</h3><br>
+				<form method="post" action="joinAction.do">
+					<font size="6" color="gray" style="text-align: center;">회원가입</font><br><br>
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="아이디 (Hong@naver.com)" name="id" maxlength="20" onkeydown="inputIdChk()">
 						<input type="button" value="중복확인" onclick="openIdChk()">
@@ -44,13 +44,14 @@
 					</div>
 					
 						<div class="form-group">
-						<input type="address" class="form-control" placeholder="주소" name="address" maxlength="50">
+						<input type="address" class="form-control" placeholder="주소" name="address" maxlength="50"><br>
 					</div>
 					
-					<input type="submit" class="btn btn-primary form-control" value="회원가입" onclick="location.href='loginForm.do'" >
-					<input type="submit" value="로그인 화면으로" onclick="location.href='loginForm.do'">
+					<input type="submit" class="btn btn-primary form-control" value="가입하기" >
 					
-				</form>
+					
+				</form><br>
+				<input type="submit" class="btn btn-primary form-control" value="취소" onclick="location.href='home.do'">
 			</div>
 		</div>
 		<div class="col-lg-4"></div>
@@ -59,5 +60,6 @@
 	<script src="js/bootstrap.js"></script>
 	 <script type="text/javascript" src="js/addHypen.js"></script>
 	 <script type="text/javascript" src="js/joinJoin.js"></script>
+	 <script src="js/joinJoin.js"></script>
 </body>
 </html>

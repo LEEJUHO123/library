@@ -36,3 +36,14 @@ function checkValue() {
 		alert("주소를 입력하세요")
 		return false;
 	}
+	
+	  function openIdChk(){                    
+	window.name = "parentForm";            
+	window.open("member/IdCheckForm.jsp",                   
+				"chkForm", "width=500, height=300, resizable = no, scrollbars = no");   
+				         
+				}
+				
+ function inputIdChk(){     
+ document.userInfo.idDuplication.value ="idUncheck";        
+}
