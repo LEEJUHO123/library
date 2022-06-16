@@ -10,6 +10,15 @@
 <meta name="viewport" content="width=device-width" , initial-scale"="1">
 <link rel="stylesheet" href="css/bootstrap.css">
 <title>JSP 게시판 웹 사이트</title>
+<!-- Custom fonts for this template-->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <body>
 	...
@@ -29,21 +38,28 @@ vo.setTel(tel);
 vo.setAddress(address);
 MemberService dao = new MemberServiceImpl();
 %>
+	<div align="center" style="margin-bottom: 50px;">
+		<font size="6" class="h4 text-gray-900 mb-4"
+			style="text-align: center;">회원가입</font>
+	</div>
 	<div class="container" align="center">
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4">
-			<div class="jumbotron" style="padding-top: 20px;">
+		<!-- <div class="col-lg-4"></div> -->
+		<div class="col-xl-6 col-lg-6 col-md-5">
+			<div class="content-center">
 				<form method="post" action="joinAction.do">
-					<font size="6" color="gray" style="text-align: center;">회원가입</font><br>
-					<br>
+
 					<div class="form-group">
 
 						<div class="form-group">
-							<label for="id">아이디</label> <input type="email"
-								class="form-control" id="id" name="id"
-								placeholder="아이디(이메일 형식)" required>
-							<div class="check_font" id="id_check"></div>
+						
+							<input type="email" class="username_input"  id="id" name="id"
+								placeholder="아이디(이메일 형식)" required onkeydown="inputIdChk()" >
+								
+							<button type="button" class="id_overlap_button"
+								onclick="id_overlap_check()">중복검사</button>
+							<img id="id_check_sucess" style="display: none;">
 						</div>
+
 						<!-- <input type="email" id="id" class="username_input" placeholder="아이디 (이메일형식)" name="id" maxlength="20"  check_result="fail" required> -->
 						<!-- <button type="button" class="id_overlap_button"
 							onclick="id_overlap_check()">중복확인</button> -->
@@ -57,10 +73,12 @@ MemberService dao = new MemberServiceImpl();
 							placeholder="비밀번호 (20자 이내)" name="password" maxlength="20"
 							required>
 					</div>
+					<br>
 					<div class="form-group">
 						<input type="text" id="name" class="form-control" placeholder="이름"
 							name="name" maxlength="4" required>
 					</div>
+					<br>
 					<!-- <div class="form-group" style="text-align: center;">
 						<div class="btn-group" data-toggle="buttons">
 							<label class="btn btn-primary active">
@@ -78,20 +96,23 @@ MemberService dao = new MemberServiceImpl();
 							onKeyup="addHypen(this);" placeholder="휴대폰 번호 (-없이 입력하세요)"
 							name="tel" maxlength="13" required>
 					</div>
+					<br>
 
 					<div class="form-group">
 						<input type="address" id="address" class="form-control"
 							placeholder="주소" name="address" maxlength="50" required><br>
 					</div>
-
-					<input type="submit" class="btn btn-primary form-control"
+					<br> <input type="submit" class="btn btn-info"
+						style="padding: 10px; padding-right: 150px; padding-left: 150px"
 						value="가입하기">
 
 
 				</form>
-				<br> <input type="submit" class="btn btn-primary form-control"
+				<br> <br> <input type="submit" class="btn btn-info"
+					style="padding: 10px; padding-right: 160px; padding-left: 160px"
 					value="취소" onclick="location.href='home.do'">
 			</div>
+			<br> <br> <br>
 		</div>
 		<div class="col-lg-4"></div>
 	</div>
@@ -100,7 +121,8 @@ MemberService dao = new MemberServiceImpl();
 	<script type="text/javascript" src="js/addHypen.js"></script>
 	<script type="text/javascript" src="js/joinJoin.js"></script>
 	<script type="text/javascript">
-		/* function openIdChk(){                    
+		
+/* 		function openIdChk(){                    
 			var id = document.getElementById("id").value;
 			
 				 if (!id) {
@@ -113,10 +135,12 @@ MemberService dao = new MemberServiceImpl();
 					alert("이미 존재하는 아이디 입니다")
 					return false;
 				}		         
-		} */
+		}  */
 
-		/* function id_overlap_check() {
+		 function id_overlap_check() {
 
+		
+			
 			$('.username_input').change(function() {
 				$('#id_check_sucess').hide();
 				$('.id_overlap_button').show();
@@ -131,7 +155,8 @@ MemberService dao = new MemberServiceImpl();
 			id_overlap_input = document.querySelector('input[name="id"]');
 
 			$.ajax({
-				url : "{% url 'member:id_overlap_check' %}",
+				url : "loginForm.do",
+				/* url : "{% url 'member:id_overlap_check' %}", */
 				data : {
 					'id' : id_overlap_input.value
 				},
@@ -148,52 +173,19 @@ MemberService dao = new MemberServiceImpl();
 						$('#id_check_sucess').show();
 						$('.id_overlap_button').hide();
 						return;
+						
+						if ($('.username_input').attr("check_result") == "fail"){
+						    alert("아이디 중복체크를 해주시기 바랍니다.");
+						    $('.username_input').focus();
+						    return false;
+						  }
+						
 					}
 				}
 			});
-		} */
+		} 
 		
-		// 아이디 유효성 검사(1 = 중복 / 0 != 중복)
-		$("#user_id").blur(function() {
-			// id = "id_reg" / name = "userId"
-			var user_id = $('#user_id').val();
-			$.ajax({
-				url : '${pageContext.request.contextPath}/user/idCheck?userId='+ user_id,
-				type : 'get',
-				success : function(data) {
-					console.log("1 = 중복o / 0 = 중복x : "+ data);							
-					
-					if (data == 1) {
-							// 1 : 아이디가 중복되는 문구
-							$("#id_check").text("사용중인 아이디입니다 :p");
-							$("#id_check").css("color", "red");
-							$("#reg_submit").attr("disabled", true);
-						} else {
-							
-							if(idJ.test(user_id)){
-								// 0 : 아이디 길이 / 문자열 검사
-								$("#id_check").text("");
-								$("#reg_submit").attr("disabled", false);
-					
-							} else if(user_id == ""){
-								
-								$('#id_check').text('아이디를 입력해주세요 :)');
-								$('#id_check').css('color', 'red');
-								$("#reg_submit").attr("disabled", true);				
-								
-							} else {
-								
-								$('#id_check').text("아이디는 소문자와 숫자 4~12자리만 가능합니다 :) :)");
-								$('#id_check').css('color', 'red');
-								$("#reg_submit").attr("disabled", true);
-							}
-							
-						}
-					}, error : function() {
-							console.log("실패");
-					}
-				});
-			});
+	
 		
 		
 		

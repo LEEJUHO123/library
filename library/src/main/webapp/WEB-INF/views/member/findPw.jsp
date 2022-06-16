@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form name="pwfindscreen" method = "POST" align="center">
+<form name="pwfindscreen" method = "POST" align="center" style="padding : 100px;">
 			<div class = "search-title">
 				<h3>비밀번호 찾기</h3>
 			</div>
+			<div style="padding-top: 30px;"></div>
 		<section class = "form-search"><br>
 			<div class = "find-id">
 				<label>ID</label>
@@ -25,8 +26,10 @@
 			<br><br>
 	</section>
 	<div class ="btnSearch">
-		<input type="button" name="enter" value="찾기"  onClick="pw_search()" >
-		<input type="button" name="cancle" value="취소" onClick="history.back()">
+	<div style="padding-top: 50px;"></div>
+		<input type="button" name="enter" value="찾기"  onClick="pw_search()" style="margin-right: 50px; padding: 5px; padding-right:15px; padding-left:15px">
+		
+		<input type="button" name="cancle" value="취소" onClick="history.back()" style="padding: 5px; padding-right:15px; padding-left:15px">
  	</div>
  </form>
  <script type="text/javascript" src="js/findinfo.js"></script>

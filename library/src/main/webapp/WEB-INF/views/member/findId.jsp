@@ -33,8 +33,8 @@
 	</section>
 	<div class ="btnSearch">
 	<div style="padding-top: 50px;"></div>
-		<input type="button" name="enter" value="찾기"  onClick="id_search()">
-		<input type="button" name="cancle" value="취소" onClick="history.back()">
+		<input type="button" name="enter" value="찾기"  onClick="id_search()"style="margin-right: 50px; padding: 5px; padding-right:15px; padding-left:15px">
+		<input type="button" name="cancle" value="취소" onClick="history.back()" style="padding: 5px; padding-right:15px; padding-left:15px">
  	</div>
  </form>
 <script type="text/javascript" src="js/findinfo.js"></script>
