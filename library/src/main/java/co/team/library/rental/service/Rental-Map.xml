@@ -6,18 +6,22 @@
 	</select>
 	
 	<select id="myRentalList" parameterType="String" resultType="co.team.library.rental.vo.RentalVO">
-		SELECT * FROM RENTAL
+		SELECT ID, A.BOOKTITLE AS BOOKNAME, RENTALDATE, RETURNDATE, RETURNORNOT
+		FROM BOOKLIST A INNER JOIN RENTAL B
+		ON A.BOOKCODE = B.BOOKCODE
 		WHERE ID = #{id}
 		ORDER BY RENTALDATE DESC
 	</select>
 	
 	<select id="nowRentalList" parameterType="String" resultType="co.team.library.rental.vo.RentalVO">
 		<![CDATA[
-		SELECT * FROM RENTAL
+		SELECT ID, A.BOOKTITLE AS BOOKNAME, RENTALDATE, RETURNDATE, RETURNORNOT
+		FROM BOOKLIST A INNER JOIN RENTAL B
+		ON A.BOOKCODE = B.BOOKCODE
 		WHERE ID = #{id}
-		AND RENTALDATE <= SYSDATE
-        AND SYSDATE <= RETURNDATE
-        AND RETURN != 1	
+		AND B.RENTALDATE <= SYSDATE
+        AND SYSDATE <= B.RETURNDATE
+        AND B.RETURNORNOT != 1	
         ORDER BY RENTALDATE DESC
         ]]>
 		

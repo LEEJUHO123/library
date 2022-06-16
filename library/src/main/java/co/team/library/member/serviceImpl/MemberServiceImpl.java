@@ -45,8 +45,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int memberDelete(MemberVO vo) {
-		return map.memberDelete(vo);
+	public int memberExit(MemberVO vo) {
+		return map.memberExit(vo);
 	}
 
 	

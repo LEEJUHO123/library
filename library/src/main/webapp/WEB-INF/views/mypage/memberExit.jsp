@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>탈퇴 완료</title>
 <style>
 .myInfoForm {
 	margin: 0 auto;
@@ -12,9 +12,9 @@
 }
 
 fieldset {
+	padding: 5%;
 	margin: 5% 20%;
 	border: 5px solid black;
-	padding-bottom: 5%;
 }
 
 .myInfoForm ul li {
@@ -44,29 +44,20 @@ fieldset {
 }
 </style>
 </head>
-<!-- css : myInfo -->
 <body>
 	<div class="container">
 		<div class="col-lg-12">
 			<div class="section-title from-blog__title">
-				<h2>회원 정보 확인</h2>
+				<h2>회원 탈퇴</h2>
 			</div>
 		</div>
 		<div>
 			<form class="myInfoForm">
 				<fieldset>
-					<div id="info">
-						<ul>
-							<li><a>아이디</a> : ${id }</li>
-							<li><a>비밀번호</a> :
-								<button class="btn" type="button" class="btn" onClick="location.href='checkPwForm.do'">변경하기</button></li>
-							<li><a>이름</a> : ${name }</li>
-							<li><a>전화번호</a> : ${tel }</li>
-							<li><a>주소</a> : ${address }</li>
-						</ul>
-					</div>
-					<a><button type="button" class="btn" onClick="location.href='modifyMyInfo.do'">정보수정</button></a>
-					<a><button type="button" class="btn" onClick="location.href='checkMemberExit.do'">회원탈퇴</button></a>
+					<p>
+						${message}<br> 
+					</p>
+					<button type="button" class="btn" onClick="location.href='home.do'">메인화면으로</button>
 				</fieldset>
 			</form>
 		</div>

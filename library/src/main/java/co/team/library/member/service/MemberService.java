@@ -16,7 +16,7 @@ public interface MemberService {
 	int memberUpdate(MemberVO vo); // 변경 (마이페이지)
 	int memberUpdateBlack(MemberVO vo); // 블랙리스트 추가
 	int memberUpdatenormal(MemberVO vo); // 블랙리스트를 정상으로
-	int memberDelete(MemberVO vo); // 정보삭제 (마이페이지)
+	int memberExit(MemberVO vo); // 정보삭제 (마이페이지)
 	String findId(MemberVO vo); //아이디 찾기
 	String findPw(MemberVO vo); //비번 찾기
 	int join(MemberVO vo); // 회원가입
