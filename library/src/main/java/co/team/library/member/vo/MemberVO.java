@@ -8,11 +8,11 @@ import lombok.ToString;
 @Setter
 @ToString
 public class MemberVO {
-
 	private String id;
 	private String password;
 	private String name;
 	private String tel;
 	private String address;
 	private int black;
+	private int delayCount;	
 }

@@ -2,11 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.team.library.member.service.MemberMapper">
 
-	<select id="memberSelectList" resultType="co.team.library.member.vo.MemberVO">
+	<select id="memberSelectList"
+		resultType="co.team.library.member.vo.MemberVO">
+		<!-- SELECT * FROM MEMBER -->
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, A.*
+		FROM (
 		SELECT * FROM MEMBER
+		) A
+		)
+		WHERE RN BETWEEN #{start} AND #{end}
 	</select>
-	
-	<select id="MemberSelect" resultType="co.team.library.member.vo.MemberVO">
+
+	<select id="MemberSelect"
+		resultType="co.team.library.member.vo.MemberVO">
 		SELECT * FROM MEMBER
 		WHERE ID = #{id}
 		<if test="password != null">
@@ -14,61 +24,87 @@
 		</if>
 	</select>
 
-	<select id="memberBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
-      SELECT * FROM MEMBER
-      WHERE BLACK = 1
-   </select>
-   
-<!--    <select id="addBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
-     SELECT * FROM MEMBER
-      WHERE  NONPAYMENT = 2
-   
-   </select> -->
+	<select id="memberBlackSelectList"
+		resultType="co.team.library.member.vo.MemberVO">
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, A.*
+		FROM (
+		SELECT * FROM MEMBER
+		WHERE BLACK = 1
+		) A
+		)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
 
+
+	<select id="addBlackSelectList" resultType="co.team.library.member.vo.MemberVO"> 
+	
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, A.*
+		FROM (
+		SELECT * FROM MEMBER WHERE DELAYCOUNT >= 2 AND BLACK = 0
+		) A
+		)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="boardListCount" resultType="int">
+		SELECT COUNT(*) FROM MEMBER
+	</select>
+	
+	<select id="boardListCount1" resultType="int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE BLACK = 1
+	</select>
+	
+	<select id="boardListCount2" resultType="int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE DELAYCOUNT >= 2
+	</select>
+	
 
 	<insert id="memberInsert">
 
-	
+
 	</insert>
-	
+
 	<update id="memberUpdate">
-	
+
 	</update>
 	
-	<update id="memberUpdateBlack">
-	
+	<update id="blackUpdate" parameterType="co.team.library.member.vo.MemberVO">
+		UPDATE MEMBER SET
+		BLACK = 1
+		WHERE ID = #{id}
 	</update>
+
 
 	<delete id="memberDelete">
-	
+
 	</delete>
-	
-	<select id="findId" resultType = "string">
+
+	<select id="findId" resultType="string">
 		select id from member
-		where name=#{name}
+		where
+		name=#{name}
 		and tel=#{tel}
-	</select>
-	
-	<select id="findPw" resultType = "string">
-		select password from member
-		where id=#{id}
-		and tel=#{tel}
-	
 	</select>
 
-	<insert id="join" parameterType="co.team.library.member.vo.MemberVO">
-	
-	INSERT INTO MEMBER
+	<select id="findPw" resultType="string">
+		select password from member
+		where
+		id=#{id}
+		and tel=#{tel}
+
+	</select>
+
+	<insert id="join"
+		parameterType="co.team.library.member.vo.MemberVO">
+
+		INSERT INTO MEMBER
 		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, 0)
 	</insert>
-	
-   
-<!--      <update id="memberUpdateBlack" parameterType="co.team.library.member.vo.MemberVO">
-   UPDATE MEMBER SET BLACK = 1 WHERE ID=#{id}
-   </update>
-   
-     <update id="memberUpdatenormal" parameterType="co.team.library.member.vo.MemberVO">
-   UPDATE MEMBER SET BLACK = 0 WHERE ID=#{id}
-   </update> -->
 
 </mapper>

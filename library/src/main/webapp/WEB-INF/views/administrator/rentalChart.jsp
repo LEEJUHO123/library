@@ -18,18 +18,16 @@
         ]);
 
         var options = {
-          title: 'Rental Chart',
-          pieHole: 0.4,
+          title: '대여 차트 현황',
+          is3D: true,
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
         chart.draw(data, options);
       }
     </script>
   </head>
-<body>
   <body>
-    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
   </body>
-</body>
 </html>

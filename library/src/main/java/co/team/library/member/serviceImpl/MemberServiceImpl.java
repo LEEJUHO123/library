@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import co.team.library.comm.DataSource;
 import co.team.library.member.service.MemberMapper;
 import co.team.library.member.service.MemberService;
+import co.team.library.member.vo.BoardPage;
 import co.team.library.member.vo.MemberVO;
 
 public class MemberServiceImpl implements MemberService{
@@ -15,18 +16,18 @@ public class MemberServiceImpl implements MemberService{
 	
 	
 	@Override
-	public List<MemberVO> memberSelectList() {
-		return map.memberSelectList();
+	public List<MemberVO> memberSelectList(BoardPage page) {
+		return map.memberSelectList(page);
 	}
 
 	@Override
-	public List<MemberVO> memberBlackSelectList() {
-		return map.memberBlackSelectList();
+	public List<MemberVO> memberBlackSelectList(BoardPage page) {
+		return map.memberBlackSelectList(page);
 	}
 	
 	@Override
-	public List<MemberVO> addBlackSelectList() {
-		return map.addBlackSelectList();
+	public List<MemberVO> addBlackSelectList(BoardPage page) {
+		return map.addBlackSelectList(page);
 	}
 	
 	@Override
@@ -69,13 +70,23 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int memberUpdateBlack(MemberVO vo) {
-		return map.memberUpdateBlack(vo);
+	public int boardListCount() {
+		return map.boardListCount();
 	}
 
 	@Override
-	public int memberUpdatenormal(MemberVO vo) {
-		return map.memberUpdatenormal(vo);
+	public int blackUpdate(MemberVO vo) {
+		return map.blackUpdate(vo);
+	}
+
+	@Override
+	public int boardListCount1() {
+		return map.boardListCount1();
+	}
+
+	@Override
+	public int boardListCount2() {
+		return map.boardListCount2();
 	}
 
 
