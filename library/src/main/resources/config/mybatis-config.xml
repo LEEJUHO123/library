@@ -21,5 +21,6 @@
   <mappers>
      <mapper resource="co/team/library/member/service/Member-map.xml"/>
      <mapper resource="co/team/library/qna/service/qna-map.xml"/>
+     <mapper resource="co/team/library/rental/service/Rental-Map.xml"/>
   </mappers>
 </configuration>

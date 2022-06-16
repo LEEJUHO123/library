@@ -39,7 +39,8 @@
 	
 	</update>
 
-	<delete id="memberDelete">
+	<delete id="memberExit" parameterType="co.team.library.member.vo.MemberVO">
+		DELETE MEMBER WHERE ID = #{id}
 	
 	</delete>
 	
