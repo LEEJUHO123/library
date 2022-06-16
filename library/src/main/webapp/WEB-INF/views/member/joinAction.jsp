@@ -17,14 +17,15 @@
     String name = request.getParameter("name");
     String tel = request.getParameter("tel");
     String address = request.getParameter("address");
-    MemberVO vo = new MemberVO();
+     MemberVO vo = new MemberVO();
     vo.setId(id);
     vo.setPassword(password);
     vo.setName(name);
     vo.setTel(tel);
     vo.setAddress(address);
 	MemberService dao = new MemberServiceImpl();
-	int joinName = dao.join(vo);
+	int joinAccount = dao.join(vo); 
+	
 %>
 <div align="center">
 <font color="blue" ><%=name%></font>님의 가입을 축하드립니다.
