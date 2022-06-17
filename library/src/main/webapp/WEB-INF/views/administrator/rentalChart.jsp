@@ -2,32 +2,40 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
+<head>
+<meta charset="UTF-8">
+<title>차트 현황</title>
+
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart); // drawChart에 매개함수를 넣겠다
+      
+      
       function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
-
+      let result = []; // 제일먼저 result 값을 만들어서
+      result.push(['책제목', '대여횟수']);
+      let xhtp = new XMLHttpRequest();
+      xhtp.open('get', '../ChartSevlet'); // 경로(파일위치)가 매우 중요
+      xhtp.send();
+      xhtp.onload = function(){
+    	  let data1 = JSON.parse(xhtp.responseText);
+    	  for (let field in data1){
+    		  result.push([field, data1[field]]);
+    	  }
+        var data = google.visualization.arrayToDataTable(result);
         var options = {
-          title: '대여 차트 현황',
-          is3D: true,
+          title: '차트별 현황'
         };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
       }
+   }
     </script>
-  </head>
-  <body>
-    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-  </body>
+
+</head>
+<body>
+	<div id="piechart" style="width: 900px; height: 500px;"></div>
+</body>
 </html>

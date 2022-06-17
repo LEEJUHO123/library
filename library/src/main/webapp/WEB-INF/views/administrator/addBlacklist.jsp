@@ -1,6 +1,3 @@
-<%@page import="co.team.library.member.serviceImpl.MemberServiceImpl"%>
-<%@page import="co.team.library.member.service.MemberService"%>
-<%@page import="co.team.library.member.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -20,7 +17,7 @@
 				<h6>블랙리스트 추가 목록</h6>
 			</div>
 			<div>
-				<table border="1" width="90%">
+				<table name="blacklist" border="1" width="90%">
 					<thead>
 						<tr>
 							<th>아이디</th>
@@ -42,8 +39,7 @@
 								<td>${m.tel }</td>
 								<td>${m.address }</td>
 								<td>${m.delayCount }</td>
-								<td><input type="button" value="블랙"
-									onclick="black(${m.id })"></td>
+								<td><a href="#" onclick="black(m.id);">블랙</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -77,19 +73,22 @@
 	</div>
 
 	<script type="text/javascript">
-	function black(${m.id }) {
-		alert('수정 완료되었습니다.');
-		$.ajax({
-			url : '../../run.do', 
-			method : 'GET',
-			traditional : true,
-			dataType : 'json',
-			contentType : "application/x-www-form-urlencoded; charset=utf-8",
-			success : function(res) {
-				console.log(res);
-      }
-    })
-  }
+		function black(m.id) {
+			console.log(id)
+
+			// 			$.ajax({
+			// 				url : 'run.do',
+			// 				method : 'POST',
+			// 				dataType : 'json',
+			// 				data : {
+			// 					"id" : $("#id").val(),
+			// 					"black" : $("#black").val()
+			// 				},
+			// 				success : function(result) {
+			// 					alert('수정 완료되었습니다.');
+			// 				}
+			// 			});
+		}
 	</script>
 
 

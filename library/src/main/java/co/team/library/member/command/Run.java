@@ -16,9 +16,14 @@ public class Run implements Command {
 		MemberService dao = new MemberServiceImpl();
 		HttpSession session = request.getSession();
 		MemberVO vo = new MemberVO();
+			
+		String id = request.getParameter("id");
 		
-		vo.setId(request.getParameter("id"));
+		int black = Integer.valueOf(request.getParameter("black"));
 		
-		return "administrator/addBlacklist";
+		int result = dao.blackUpdate(vo);
+
+		return "ajax:" + result;
 	}
+
 }

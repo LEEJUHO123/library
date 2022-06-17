@@ -45,10 +45,9 @@ public class MemberServiceImpl implements MemberService{
 		return map.memberUpdate(vo);
 	}
 
-	@Override
-	public int memberExit(MemberVO vo) {
-		return map.memberExit(vo);
-	}
+	/*
+	 * @Override public int memberExit(MemberVO vo) { return map.memberExit(vo); }
+	 */
 
 	
 
@@ -87,6 +86,16 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int boardListCount2() {
 		return map.boardListCount2();
+	}
+
+	@Override
+	public int memberDelete(MemberVO vo) {
+		return map.memberDelete(vo);
+	}
+
+	@Override
+	public MemberVO MemberChart(MemberVO vo) {
+		return null;
 	}
 
 

@@ -10,7 +10,7 @@ public class RentalChart implements Command {
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// 도넛차트
-		return "administrator/rentalChart2";
+		return "administrator/rentalChart";
 	}
 
 }

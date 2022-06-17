@@ -10,6 +10,7 @@ public interface MemberMapper {
 	List<MemberVO> memberBlackSelectList(BoardPage page); //블랙전체리스트
 	List<MemberVO> addBlackSelectList(BoardPage page); //블랙리스트 당할 목록
 	MemberVO MemberSelect(MemberVO vo); // 한명조회 (마이페이지)
+	MemberVO MemberChart(MemberVO vo); // 차트확인 sql
 	int memberInsert(MemberVO vo); // 추가 (가입)
 	int memberUpdate(MemberVO vo); // 변경 (마이페이지)
 	int blackUpdate(MemberVO vo); // 블랙리스트 업데이트

@@ -74,7 +74,7 @@
 
 	</update>
 	
-	<update id="blackUpdate" parameterType="co.team.library.member.vo.MemberVO">
+	<update id="blackUpdate" parameterType="string">
 		UPDATE MEMBER SET
 		BLACK = 1
 		WHERE ID = #{id}
