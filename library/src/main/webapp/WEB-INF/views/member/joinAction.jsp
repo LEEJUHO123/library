@@ -16,17 +16,18 @@
     String password = request.getParameter("password");
     String name = request.getParameter("name");
     String tel = request.getParameter("tel");
-    String address =(String) request.getParameter("roadAddress")+" "
-    				+ (String) request.getParameter("jibunAddress")+ " "
-    				+ (String) request.getParameter("detailAddress");
-    String postCode = (String) request.getParameter("postCode");
-    
+    String address = request.getParameter("roadAddress")+" "
+    				+ request.getParameter("jibunAddress")+ " "
+    				+ request.getParameter("detailAddress");
+    String postCode = request.getParameter("postCode");
+  	 System.out.println(address);
      MemberVO vo = new MemberVO();
     vo.setId(id);
     vo.setPassword(password);
     vo.setName(name);
     vo.setTel(tel);
     vo.setAddress(address);
+    vo.setPostCode(postCode);
 	MemberService dao = new MemberServiceImpl();
 	int joinAccount = dao.join(vo); 
 	

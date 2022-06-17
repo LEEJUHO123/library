@@ -10,6 +10,13 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id"
+	content="686260376549-h2h8chmnict3so1je5qd4qe812agg4jp.apps.googleusercontent.com">
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
 <title>SB Admin 2 - Dashboard</title>
 
 <!-- Custom fonts for this template-->
@@ -37,15 +44,16 @@
 				<div>
 					<div class="card-body p-0">
 						<!-- Nested Row within Card Body -->
-						<div class="row">
+						<div class="row justify-content-center">
 							<!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
-							
+
 							<div class="col-lg-6">
 								<div class="p-5">
 									<div class="text-center">
 										<h1 class="h4 text-gray-900 mb-4">로그인</h1>
 									</div>
-									<form class="user" action="login.do" method="post" name="loginfindscreen" >
+									<form class="user" action="login.do" method="post"
+										name="loginfindscreen">
 										<div class="form-group">
 											<input type="email" class="form-control form-control-user"
 												id="id" name="id" aria-describedby="emailHelp"
@@ -64,26 +72,20 @@
 											</div>
 										</div>
 										<button type="submit"
-											class="btn btn-primary btn-user btn-block" value="login" >로그인</button>
+											class="btn btn-primary btn-user btn-block" value="login">로그인</button>
 										<!-- = <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a> -->
 										<hr>
-										<a href="home.do" class="btn btn-google btn-user btn-block">
-											<i class="fab fa-google fa-fw"></i> Login with Google
-										</a> <a href="home.do"
-											class="btn btn-facebook btn-user btn-block"> <i
-											class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-										</a>
+										<a href="#" onclick="kakaoLogin();"> <img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+											width="222" alt="카카오 로그인 버튼" /></a>
 									</form>
 									<hr>
 									<div class="text-center">
-										<a class="small" href="findId.do">아이디 찾기
-											</a>
+										<a class="small" href="findId.do">아이디 찾기 </a>
 									</div>
 									<div class="text-center">
-										<a class="small" href="findPw.do">
-											비밀번호 찾기</a>
+										<a class="small" href="findPw.do"> 비밀번호 찾기</a>
 									</div>
 									<div class="text-center">
 										<a class="small" href="join.do">회원가입</a>
@@ -116,5 +118,59 @@
 	<!-- Page level custom scripts -->
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
+	
+	<script>
+		Kakao.init('b2bbcde9516f44c6e5390f485167253f'); //발급받은 키 중 javascript키를 사용해준다.
+		console.log(Kakao.isInitialized()); // sdk초기화여부판단
+		//카카오로그인
+		function kakaoLogin() {
+			Kakao.Auth.login({
+				success : function(response) {
+					Kakao.API.request({
+						url : '/v2/user/me',
+						success : function(response) {
+							$.ajax({
+								type : "post",
+								url : "snsLogin.do",
+								data : {
+									"kakao" : response.kakao_account.email
+								},
+								dataType : "text",
+								success : function(data) {
+									console.log(data)
+									location.href = 'home.do'
+								}
+							 	fail : function(error) {
+									location.href = 'join.do'
+								}, 
+							})
+						},
+						fail : function(error) {
+							console.log(error)
+						},
+					})
+				},
+				fail : function(error) {
+					console.log(error)
+				},
+			})
+		}
+		//카카오로그아웃  
+		function kakaoLogout() {
+			if (Kakao.Auth.getAccessToken()) {
+				Kakao.API.request({
+					url : '/v1/user/unlink',
+					success : function(response) {
+						console.log(response)
+					},
+					fail : function(error) {
+						console.log(error)
+					},
+				})
+				Kakao.Auth.setAccessToken(undefined)
+			}
+		}
+	</script>
+	
 </body>
 </html>

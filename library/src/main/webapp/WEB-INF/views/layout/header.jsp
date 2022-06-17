@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+
+
 </head>
 <body>
 	<!-- Humberger Begin -->
@@ -16,9 +19,18 @@
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
-				<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>&nbsp;&nbsp;&nbsp;
-				<li><a href="loginForm.do"><i class="fa fa-user"></i> Login</a></li>
-				<li><a href="join.do"><i class="fa fa-user-pen"></i> join</a></li>
+				<c:if test="${not empty id }">
+					<ul>
+						<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
+						<li><a href="#">마이페이지</a>
+						<li><a href="logout.do">Logout</a></li>
+					</ul>
+				</c:if>
+				<c:if test="${empty id }">
+					<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
+					<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>
+				</c:if>
+
 			</ul>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
@@ -32,11 +44,10 @@
 						<li><a href="rentalBook.do">대여하기</a></li>
 					</ul></li>
 				<li><a href="contact.do">Contact</a></li>
-				<li><a href="#">Q&A</a>
-					<ul class="header__menu__dropdown">
-					<li><a href="qnaList.do">문의목록</a></li>
-					<li><a href="qnaInputForm.do">문의작성</a></li>
-				</ul></li>
+				<li><a href="#">QnA</a></li>
+				<c:if test="${id eq 'abc@abc.com' }">
+					<li><a href="#">관리자메뉴</a></li>
+				</c:if>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
@@ -73,16 +84,14 @@
 									<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
 									<li>${name }님
 									<li><a href="#">마이페이지</a>
-									<li><a href="logout.do" class="logout"
-										style="color: white;">Logout</a></li>
+									<li><a href="logout.do">Logout</a></li>
 								</ul>
-
 							</c:if>
 							<c:if test="${empty id }">
 								<div class="header__top__right__auth">
 									<ul>
 										<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
-										<li><a href="join.do"><i class="fa fa-user-pen"></i>Join</a></li>
+										<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>										
 									</ul>
 								</div>
 							</c:if>
@@ -110,36 +119,12 @@
 									<li><a href="rentalBook.do">대여하기</a></li>
 								</ul></li>
 							<li><a href="contact.do">Contact</a></li>
-							<li><a href="#">Q&A</a>
-								<ul class="header__menu__dropdown">
-									<li><a href="qnaList.do">문의목록</a></li>
-									<li><a href="qnaInputForm.do">문의작성</a></li>
-								</ul></li>
-							<c:if test="${author eq 'ADMIN' }">
-								<li><a href="#">관리자메뉴</a></li>
+							<li><a href="#">QnA</a></li>
+							<c:if test="${id eq 'abc@abc.com' }">
+								<li><a href="admin.do">관리자메뉴</a></li>
 							</c:if>
 						</ul>
 					</nav>
-				</div>
-				<div class="col-lg-3">
-					<div class="header__cart">
-						<c:if test="${not empty id }">
-							<ul>
-								<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
-								<li><a href="mypageHome.do">마이페이지</a>
-								<li>${name }
-								<li><a href="logout.do">Logout</a>
-							</ul>
-						</c:if>
-						<c:if test="${empty id }">
-							<div class="header__top__right__auth">
-								<ul>
-									<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
-									<li><a href="#"><i class="fa fa-user-pen"></i>Join</a></li>
-								</ul>
-							</div>
-						</c:if>
-					</div>
 				</div>
 			</div>
 			<div class="humberger__open">
@@ -175,7 +160,12 @@
 						<div class="hero__search__form">
 							<form action="#">
 								<div class="hero__search__categories">
-									모든 카테고리 <span class="arrow_carrot-down"></span>
+									<select class="book__search">
+										<option selected>전체검색</option>
+										<option>제목</option>
+										<option>카테고리</option>
+										<option>저자</option>
+									</select>
 								</div>
 								<input type="text" placeholder="What do yo u need?">
 								<button type="submit" class="site-btn">SEARCH</button>
@@ -196,6 +186,7 @@
 		</div>
 	</section>
 	<!-- Hero Section End -->
-
+	
+	
 </body>
 </html>

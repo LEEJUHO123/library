@@ -101,13 +101,13 @@ MemberService dao = new MemberServiceImpl();
 					<div class="form-group">
 						<!-- <input type="address" id="address" class="form-control"
 							placeholder="주소" name="address" maxlength="50" required><br> -->
-							<input type="text" id="postCode" placeholder="우편번호">
+							<input type="text" id="postCode" name="postCode" placeholder="우편번호">
 						<input type="button" onclick="sample4_execDaumPostcode()"
 							value="주소 찾기"><br><br>
-							<input type="text" class="form-control" id="roadAddress" placeholder="도로명주소" required><br> 
-							<input type="text" class="form-control" id="jibunAddress" placeholder="지번주소" required><br>
+							<input type="text" class="form-control" id="roadAddress" name="roadAddress" placeholder="도로명주소" required><br> 
+							<input type="text" class="form-control" id="jibunAddress" name="jibunAddress" placeholder="지번주소" required><br>
 						<span id="guide" style="color: #999; display: none"></span> 
-						<input type="text" class="form-control" id="detailAddress" placeholder="상세주소" required>
+						<input type="text" class="form-control" id="detailAddress" name="detailAddress" placeholder="상세주소" required>
 					</div>
 					<br> <input type="submit" class="btn btn-info"
 						style="padding: 10px; padding-right: 150px; padding-left: 150px"
@@ -115,7 +115,7 @@ MemberService dao = new MemberServiceImpl();
 
 
 				</form>
-				<br> <br> <input type="submit" class="btn btn-info"
+				<br> <br> <input type="reset" class="btn btn-info"
 					style="padding: 10px; padding-right: 160px; padding-left: 160px"
 					value="취소" onclick="location.href='home.do'">
 			</div>
@@ -169,32 +169,6 @@ MemberService dao = new MemberServiceImpl();
 					
 				}
 				
-				
-				
-				
-				
-
-			/*  	success : function(data) {
-					console.log(data)
-					if (data['overlap'] == "fail") {
-						alert("이미 존재하는 아이디 입니다.");
-						id_overlap_input.focus();
-						return;
-					} else {
-						alert("사용가능한 아이디 입니다.");
-						$('.username_input').attr("check_result", "success");
-						$('#id_check_sucess').show();
-						$('.id_overlap_button').hide();
-						return;
-						
-						if ($('.username_input').attr("check_result") == "fail"){
-						    alert("아이디 중복체크를 해주시기 바랍니다.");
-						    $('.username_input').focus();
-						    return false;
-						  }
-						
-					}
-				}  */
 			});
 		}
 		 

@@ -21,7 +21,7 @@
 		<section class = "form-search"><br>
 			<div class = "find-name">
 				<label>이름</label>
-				<input type="text" name="name" class = "btn-name" placeholder = "등록된 이름">
+				<input type="text"  name="name" class = "btn-name" placeholder = "등록된 이름" style="padding-right:15px; padding-left:15px">
 			<br>
 			</div>
 			<br>
