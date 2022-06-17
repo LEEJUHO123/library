@@ -73,6 +73,11 @@ public class MemberServiceImpl implements MemberService{
 		return map.memberUpdatenormal(vo);
 	}
 
+	@Override
+	public String selectAllId(String id) {
+		return map.selectAllId(id);
+	}
+
 
 	
 }

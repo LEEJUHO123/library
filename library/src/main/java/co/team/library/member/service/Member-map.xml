@@ -49,12 +49,17 @@
 	<insert id="join" parameterType="co.team.library.member.vo.MemberVO">
 	
 	INSERT INTO MEMBER
-		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, 0)
+		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, 0, 0, #{postCode})
 	</insert>
 	
  	 <select id="memberBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
       SELECT * FROM MEMBER
       WHERE BLACK = 1
+   </select>
+   
+   <select id="selectAllId" resultType="string">
+   	select id from member
+   	where id = #{id}
    </select>
    
  <!--     <update id="memberUpdateBlack" parameterType="co.team.library.member.vo.MemberVO">

@@ -16,7 +16,11 @@
     String password = request.getParameter("password");
     String name = request.getParameter("name");
     String tel = request.getParameter("tel");
-    String address = request.getParameter("address");
+    String address =(String) request.getParameter("roadAddress")+" "
+    				+ (String) request.getParameter("jibunAddress")+ " "
+    				+ (String) request.getParameter("detailAddress");
+    String postCode = (String) request.getParameter("postCode");
+    
      MemberVO vo = new MemberVO();
     vo.setId(id);
     vo.setPassword(password);
