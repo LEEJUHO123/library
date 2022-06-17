@@ -17,8 +17,7 @@
 					<table border="1">
 						<tr>
 							<th>작성자</th>
-							<td><input type="text" id="id" name="id"
-								required="required"></td>
+							<td><input type="hidden" id="id" name="id" value="${id}">${id}</td>
 							<th>작성 일자</th>
 							<td><input type="date" id="wdate" name="wdate"
 								required="required"></td>
@@ -38,7 +37,6 @@
 				<div>
 					<input type="submit" value="문의 저장">&nbsp;&nbsp;
 					<input type="reset" value="문의 취소">&nbsp;&nbsp;
-					<input type="button" value="문의 목록가기" onclick="location.href='qnaList.do'">
 				</div>
 			</form>
 		</div>

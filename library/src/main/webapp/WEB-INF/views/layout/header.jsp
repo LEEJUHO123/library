@@ -44,7 +44,9 @@
 				<li><a href="#">Q&A</a>
 					<ul class="header__menu__dropdown">
 					<li><a href="qnaList.do">문의목록</a></li>
+					<c:if test="${not empty id }">
 					<li><a href="qnaInputForm.do">문의작성</a></li>
+					</c:if>
 				</ul></li>
       <c:if test="${id eq 'abc@abc.com' }">
 					<li><a href="#">관리자메뉴</a></li>
@@ -124,8 +126,10 @@
 
 							<li><a href="#">Q&A</a>
 								<ul class="header__menu__dropdown">
-									<li><a href="qnaList.do">문의목록</a></li>
+										<li><a href="qnaList.do">문의목록</a></li>
+									<c:if test="${not empty id }">
 									<li><a href="qnaInputForm.do">문의작성</a></li>
+									</c:if>
 								</ul></li>
               <c:if test="${id eq 'abc@abc.com' }">
 								<li><a href="admin.do">관리자메뉴</a></li>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.team.library.comm.DataSource;
+import co.team.library.qna.page.SectionPage;
 import co.team.library.qna.service.QnaMapper;
 import co.team.library.qna.service.QnaService;
 import co.team.library.qnavo.QnaVO;
@@ -15,9 +16,9 @@ public class QnaServiceImpl implements QnaService{
 	private QnaMapper map = sqlSession.getMapper(QnaMapper.class);
 	
 	@Override
-	public List<QnaVO> qnaSelectList() {
+	public List<QnaVO> qnaSelectList(SectionPage page) {
 		
-		return map.qnaSelectList();
+		return map.qnaSelectList(page);
 	}
 
 	@Override
@@ -48,6 +49,13 @@ public class QnaServiceImpl implements QnaService{
 	public int qnaDelete(QnaVO vo) {
 		
 		return map.qnaDelete(vo);
+	}
+
+	
+	@Override
+	public int boardListCount() {
+		// TODO Auto-generated method stub
+		return map.boardListCount();
 	}
 
 }

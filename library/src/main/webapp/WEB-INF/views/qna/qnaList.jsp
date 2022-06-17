@@ -1,40 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-#btn_group button{
+#btn_group button {
 	margin: 5px;
 }
 </style>
-<script src="js/jquery-3.6.0.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-			<h3 align="center">문의 목록</h3>
+	<div>
+		<h3 align="center">문의 목록</h3>
+	</div>
 	<div class="container">
-				<select id="key" name="key">
-					<option value="1">전체</option>
-					<option value="2">작성자</option>
-					<option value="3">문의 제목</option>
-					<option value="4">문의 내용</option>
-				</select>&nbsp; <input type="text" id="val" name="val">&nbsp; <input
-					type="button" value="검색" onclick="search2()" class="btn btn-default">
-		<br />
+
+		<select id="key" name="key">
+			<option value="1">전체</option>
+			<option value="2">작성자</option>
+			<option value="3">문의 제목</option>
+			<option value="4">문의 내용</option>
+		</select>&nbsp; <input type="text" id="val" name="val">&nbsp; <input
+			type="button" value="검색" onclick="search2()"> <br />
+
 		<div class="container">
 			<table class="table table-striped" id="ta">
-				<thead >
+				<thead>
 					<tr>
 						<th width="100">게시글 번호</th>
 						<th width="100">작성자</th>
@@ -45,28 +51,51 @@
 				<tbody id="tb">
 					<c:forEach items="${list }" var="qna">
 						<tr onclick="qnaSelect('${qna.boardNumber}')">
-							<td align="center">${qna.boardNumber }</td>
-							<td align="center">${qna.id }</td>
-							<td align="center">${qna.title }</td>
-							<td align="center">${qna.wdate }</td>
+							<td>${qna.boardNumber }</td>
+							<td>${qna.id }</td>
+							<td>${qna.title }</td>
+							<td>${qna.wdate }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			<div id="btn_group">
-			<button type="button" id="bn1" onclick="location.href = 'home.do'" class="btn btn-default btn-xs pull-right">홈가기</button>	
-			<button type="button" id="bn2" onclick="location.href='qnaInputForm.do'" class="btn btn-default btn-xs pull-right">문의
-				작성하기</button>
-			</div>
-		</div><br>
-		<div>
-			<form id="frm" action="qnaSelect.do" method="post">
-				<input type="hidden" id="id" name="boardNumber">
-			</form>
 		</div>
-		
-	
+		<div style="display: block; text-align: center;">
+			<c:if test="${paging.startPage != 1 }">
+				<a
+					href="qnaList.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+			</c:if>
+			<c:forEach begin="${paging.startPage }" end="${paging.endPage }"
+				var="p">
+				<c:choose>
+					<c:when test="${p == paging.nowPage }">
+						<b>${p }</b>
+					</c:when>
+					<c:when test="${p != paging.nowPage }">
+						<a href="qnaList.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+					</c:when>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.endPage != paging.lastPage}">
+				<a
+					href="qnaList.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+			</c:if>
+		</div>
+
+		<div id="btn_group">
+			<button type="button" id="bn1" onclick="location.href = 'home.do'"
+				class="btn btn-default btn-xs pull-right">홈가기</button>
+		</div>
 	</div>
+	<br>
+	<div>
+		<form id="frm" action="qnaSelect.do" method="post">
+			<input type="hidden" id="id" name="boardNumber">
+		</form>
+	</div>
+
+
+
 	<script type="text/javascript">
 		function search2() {
 			$.ajax({
@@ -86,21 +115,23 @@
 			});
 		}
 
-		function htmlConvert(data) {
+		function htmlConvert(data){
 			$("tbody").remove();
-			let tb = $("<tbody/>");
-			$.each(data, function(index, item) {
-				let tr = $("<tr />").append($("<td />").text(item.boardNumber),
+			let tb = $("<tbody />");
+			$.each(data, function(index, item){
+			let tr = $("<tr />").append(
+					    $("<td />").text(item.boardNumber),
 						$("<td />").text(item.id),
 						$("<td />").text(item.title),
 						$("<td />").text(item.content),
-						$("<td />").text(item.wdate),
+						$("<td />").text(item.wdate)
+				);
 				tb.append(tr);
 			});
 			$("#ta").append(tb);
 		}
 </script>
-<script type="text/javascript">
+	<script type="text/javascript">
 	function qnaSelect(boardNumber){
 		frm.id.value = boardNumber;
 		frm.submit();

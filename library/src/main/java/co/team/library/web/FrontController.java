@@ -43,6 +43,8 @@ import co.team.library.qna.command.QnaInput;
 import co.team.library.qna.command.QnaInputForm;
 import co.team.library.qna.command.QnaList;
 import co.team.library.qna.command.QnaSelect;
+import co.team.library.qna.reply.command.ReplyInput;
+import co.team.library.qna.reply.command.ReplySelect;
 
 
 @WebServlet("*.do")
@@ -73,6 +75,9 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaSelect.do", new QnaSelect());
 		map.put("/ajaxSearchList.do", new AjaxSearchList());
 		
+		//Reply
+		//map.put("/replyInput.do", new ReplyInput());
+		map.put("/replyInputForm.do", new ReplySelect());
 		
 		/*
 		 * map.put("/mypageHome.do", new MypageHomeCommand()); map.put("/myInfo.do", new
