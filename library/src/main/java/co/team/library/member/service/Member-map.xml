@@ -31,8 +31,8 @@
 	
 	</insert>
 	
-	<update id="memberUpdate">
-	
+	<update id="memberPwUpdate" parameterType="co.team.library.member.vo.MemberVO">
+		UPDATE MEMBER SET PASSWORD = #{password} WHERE ID = #{id}
 	</update>
 	
 	<update id="memberUpdateBlack">

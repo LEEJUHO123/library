@@ -43,6 +43,7 @@ fieldset {
 	margin-bottom: 0;
 }
 </style>
+<script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -52,14 +53,13 @@ fieldset {
 			</div>
 		</div>
 		<div>
-			<form class="myInfoForm" action="changePwForm.do" method="get">
+			<form class="myInfoForm">
 				<fieldset>
 					<p>
 						현재 등록된 비밀번호를 입력해주세요.
 					</p>
-					<br> <input type="password" id="pswd" name="pswd" width="50px"
-						value="${pswd}"> <br> <br>
-					<button type="submit" class="btn">입력</button>
+					<br> <input type="password" id="pswd" name="pswd" width="50px" value="${pswd}"> <br> <br>
+					<button type="button" class="btn" onClick="checkPw()">입력</button>
 					<button type="button" class="btn" onClick="location.href='myInfo.do'">돌아가기</button>
 				</fieldset>
 			</form>

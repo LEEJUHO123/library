@@ -4,7 +4,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>수정 완료</title>
+<title>알림메세지</title>
+<style>
+.myInfoForm {
+	margin: 0 auto;
+	text-align: center;
+}
+
+fieldset {
+	padding: 5%;
+	margin: 5% 20%;
+	border: 5px solid black;
+}
+
+.myInfoForm ul li {
+	list-style: none;
+}
+
+#info {
+	text-align: left;
+	margin: 5%;
+}
+
+.myInfoForm ul li a {
+	display: inline-block;
+	width: 100px;
+	margin: 5px;
+	line-hight: 20px;
+}
+
+.btn {
+	font-size: 12px;
+	color: #6f6f6f;
+	display: inline-block;
+	padding: 8px 25px 6px;
+	background: #f5f5f5;
+	cursor: pointer;
+	margin-bottom: 0;
+}
+</style>
 </head>
 <body>
 	<div class="container">

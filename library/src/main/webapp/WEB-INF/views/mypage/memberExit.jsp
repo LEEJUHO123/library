@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>탈퇴 완료</title>
+<title>회원 탈퇴</title>
 <style>
 .myInfoForm {
 	margin: 0 auto;
@@ -43,6 +43,7 @@ fieldset {
 	margin-bottom: 0;
 }
 </style>
+<script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -54,13 +55,18 @@ fieldset {
 		<div>
 			<form class="myInfoForm">
 				<fieldset>
-					<p>
-						${message}<br> 
-					</p>
-					<button type="button" class="btn" onClick="location.href='home.do'">메인화면으로</button>
+					<p>모든 정보는 삭제되며 복구할 수 없습니다.<br>
+					탈퇴를 원하시면 패스워드를 입력하고 탈퇴버튼을 눌러주세요.</p>
+					<br>
+					<input type="password" id="pswd" name="pswd" width="50px" value="${pswd}">
+					<br>
+					<br>
+					<button type="button" class="btn" onClick="pwCheckToMemberExit()">회원탈퇴</button>
+					<button type="button" class="btn" onClick="location.href='myInfo.do'">돌아가기</button>
 				</fieldset>
 			</form>
 		</div>
 	</div>
+
 </body>
 </html>

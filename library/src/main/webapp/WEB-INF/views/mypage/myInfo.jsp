@@ -66,7 +66,7 @@ fieldset {
 						</ul>
 					</div>
 					<a><button type="button" class="btn" onClick="location.href='modifyMyInfo.do'">정보수정</button></a>
-					<a><button type="button" class="btn" onClick="location.href='checkMemberExit.do'">회원탈퇴</button></a>
+					<a><button type="button" class="btn" onClick="location.href='memberExit.do'">회원탈퇴</button></a>
 				</fieldset>
 			</form>
 		</div>

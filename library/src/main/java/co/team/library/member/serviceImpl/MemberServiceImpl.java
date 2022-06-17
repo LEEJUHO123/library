@@ -40,8 +40,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int memberUpdate(MemberVO vo) {
-		return map.memberUpdate(vo);
+	public int memberPwUpdate(MemberVO vo) {
+		return map.memberPwUpdate(vo);
 	}
 
 	@Override

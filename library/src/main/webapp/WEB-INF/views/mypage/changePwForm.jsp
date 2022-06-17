@@ -52,15 +52,15 @@ fieldset {
 			</div>
 		</div>
 		<div>
-			<form class="myInfoForm" action="memberExit.do" method="post">
+			<form class="myInfoForm">
 				<fieldset>
 					<p>변경할 비밀번호를 입력해주세요.</p>
 					<br>
-					비밀번호 입력 : <input type="password" id="pswd" name="pswd" width="50px" value="${pswd}"><br>
-					비밀번호 확인 : <input type="password" id="pswdCheck" name="pswdCheck" width="50px" value="${pswdCheck}">
+					<p>비밀번호 입력 : <input type="password" id="pswd" name="pswd" width="50px" value="${pswd}"></p>
+					<p>비밀번호 확인 : <input type="password" id="pswdCheck" name="pswdCheck" width="50px" value="${pswdCheck}"></p>
 					<br>
 					<br>
-					<button type="submit" class="btn">회원탈퇴</button>
+					<button type="button" class="btn" onClick="changePwCheck()">수정하기</button>
 					<button type="button" class="btn" onClick="location.href='myInfo.do'">돌아가기</button>
 				</fieldset>
 			</form>
