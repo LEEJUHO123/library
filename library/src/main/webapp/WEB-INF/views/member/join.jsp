@@ -168,6 +168,11 @@ MemberService dao = new MemberServiceImpl();
 					}
 					
 				}
+				
+				
+				
+				
+				
 
 			/*  	success : function(data) {
 					console.log(data)
