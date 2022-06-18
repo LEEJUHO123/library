@@ -18,16 +18,16 @@
 				<h3>아이디 찾기</h3>
 			</div>
 			<div style="padding-top: 30px;"></div>
-		<section class = "form-search"><br>
+		<section class = "form-search" align = "center"><br>
 			<div class = "find-name">
 				<label>이름</label>
-				<input type="text"  name="name" class = "btn-name" placeholder = "등록된 이름" style="padding-right:15px; padding-left:15px">
+				<input type="text"  name="name" class = "btn-name" placeholder = "등록된 이름" style="margin-left: auto; margin-right: auto;">
 			<br>
 			</div>
 			<br>
 			<div class = "find-phone">
 				<label>휴대폰 번호</label>
-				<input type="text" onKeyup = "addHypen(this);" name="tel" class = "btn-phone" placeholder = "-없이 입력하세요" maxlength="13">
+				<input type="text" onKeyup = "addHypen(this);" name="tel" class = "btn-phone" placeholder = "-없이 입력하세요" maxlength="13" style="padding-right:15px; padding-left:15px">
 			</div>
 			<br>
 	</section>

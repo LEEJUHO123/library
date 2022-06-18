@@ -3,7 +3,15 @@
 <mapper namespace="co.team.library.member.service.MemberMapper">
 
 	<select id="memberSelectList" resultType="co.team.library.member.vo.MemberVO">
+		
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, A.*
+		FROM (
 		SELECT * FROM MEMBER
+		) A
+		)
+		WHERE RN BETWEEN #{start} AND #{end}
 	</select>
 	
 	<select id="MemberSelect" resultType="co.team.library.member.vo.MemberVO">

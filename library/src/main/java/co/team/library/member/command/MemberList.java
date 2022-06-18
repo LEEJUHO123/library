@@ -10,6 +10,7 @@ import co.team.library.comm.Command;
 import co.team.library.member.service.MemberService;
 import co.team.library.member.serviceImpl.MemberServiceImpl;
 import co.team.library.member.vo.MemberVO;
+import co.team.library.member.vo.BoardPage;
 
 public class MemberList implements Command {
 
@@ -17,8 +18,27 @@ public class MemberList implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// 회원목록 리스트 확인
 		MemberService dao = new MemberServiceImpl();
+		
+		String nowPage = request.getParameter("nowPage");
+		String cntPerPage = request.getParameter("cntPerPage");
+		
+		BoardPage page = new BoardPage();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		int totalCount = dao.boardListCount();
+		page = new BoardPage(totalCount, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		
 		List<MemberVO> members = new ArrayList<MemberVO>();
-		members = dao.memberSelectList();
+		
+		members = dao.memberSelectList(page);
+		request.setAttribute("paging", page);
 		request.setAttribute("members", members);
 		return "administrator/memberList";
 	}

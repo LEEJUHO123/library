@@ -46,7 +46,7 @@ MemberService dao = new MemberServiceImpl();
 		<!-- <div class="col-lg-4"></div> -->
 		<div class="col-xl-6 col-lg-6 col-md-5">
 			<div class="content-center">
-				<form method="post" action="joinAction.do">
+				<form method="post" action="joinAction.do" id="regForm" name="regForm" onsubmit="return fn_submitChk();">
 
 					<div class="form-group">
 
@@ -145,8 +145,40 @@ MemberService dao = new MemberServiceImpl();
 		 }		         
 		 }  */
 
+		 
+		 function fn_submitChk(){
+			 
+			 if($("#idChk").val()=="N"){
+					regForm.id.focus();
+					alert("아이디 중복 확인이 필요합니다");
+					return false;
+				}
+			 
+		 }
+		 
+		 
+		 
+	//아이디 한글 및 특수문자 방지
+		 
 		function fn_idChk() {
-
+		
+		/* 	var result = document.getElementById("")
+			 var idd = document.getElementById("id").value;
+				
+		  	  if (!idd.match('^[a-zA-Z0-9]*$')) {
+			 alert("한글 및 특수문자는 아이디로 사용할 수 없습니다");
+			 return false;
+			 }    
+			 
+		 	if(!id.match('/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/')){
+				alert("이메일 형식으로 입력해주세요")
+				return false;
+			}  */
+			
+	
+			
+			//아이디 중복 처리
+			
 			var id = $("#id").val();
 			$.ajax({
 				url : "selectAllId.do",
@@ -158,12 +190,13 @@ MemberService dao = new MemberServiceImpl();
 				},
 				success : function(data) {
 					if($("#id").val() == ''){
-						alert("아이디를 입력해 주세요");
+						alert("아이디를 입력해주세요");
 					}else{
 						if(data == 1){
-							alert("사용 가능한 아이디입니다.")
+							alert("사용 가능한 아이디입니다")
+							
 						}else{
-							alert("사용 불가능한 아이디입니다.")
+							alert("이미 존재하는 아이디입니다")
 						}
 					}
 					
@@ -172,6 +205,7 @@ MemberService dao = new MemberServiceImpl();
 			});
 		}
 		 
+			//주소 API 
 		   
 		     function sample4_execDaumPostcode() {
 		         new daum.Postcode({
