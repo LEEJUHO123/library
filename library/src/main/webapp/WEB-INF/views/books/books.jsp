@@ -9,7 +9,7 @@
 <body>
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
-		data-setbg="img/breadcrumb.jpg">
+		data-setbg="img/banner2.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -29,7 +29,7 @@
 	<section class="product spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-5">
+				<div class="col-lg-3 col-md-5 col-sm-12">
 					<div class="sidebar">
 						<div class="sidebar__item">
 							<h4>카테고리</h4>
@@ -44,55 +44,7 @@
 								<li><a href="#">일반문학</a></li>
 								<li><a href="#">역사서적</a></li>								
 							</ul>
-						</div>
-											
-						<div class="sidebar__item sidebar__item__color--option">
-							<h4>Colors</h4>
-							<div class="sidebar__item__color sidebar__item__color--white">
-								<label for="white"> White <input type="radio" id="white">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--gray">
-								<label for="gray"> Gray <input type="radio" id="gray">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--red">
-								<label for="red"> Red <input type="radio" id="red">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--black">
-								<label for="black"> Black <input type="radio" id="black">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--blue">
-								<label for="blue"> Blue <input type="radio" id="blue">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--green">
-								<label for="green"> Green <input type="radio" id="green">
-								</label>
-							</div>
-						</div>
-						<div class="sidebar__item">
-							<h4>Popular Size</h4>
-							<div class="sidebar__item__size">
-								<label for="large"> Large <input type="radio" id="large">
-								</label>
-							</div>
-							<div class="sidebar__item__size">
-								<label for="medium"> Medium <input type="radio"
-									id="medium">
-								</label>
-							</div>
-							<div class="sidebar__item__size">
-								<label for="small"> Small <input type="radio" id="small">
-								</label>
-							</div>
-							<div class="sidebar__item__size">
-								<label for="tiny"> Tiny <input type="radio" id="tiny">
-								</label>
-							</div>
-						</div>
+						</div>						
 						<div class="sidebar__item">
 							<div class="latest-product__text">
 								<h4>Latest Products</h4>

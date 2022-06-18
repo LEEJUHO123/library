@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body>	
+	
 	<!-- Categories Section Begin -->
 	<section class="categories">
 		<div class="container">
@@ -66,15 +67,20 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-title">
-						<h2>Featured Product</h2>
+						<h2>Book List</h2>
 					</div>
 					<div class="featured__controls">
 						<ul>
 							<li class="active" data-filter="*">전체</li>
-							<li data-filter=".oranges">카테고리1</li>
-							<li data-filter=".fresh-meat">카테고리2</li>
-							<li data-filter=".vegetables">카테고리3</li>
-							<li data-filter=".fastfood">카테고리4</li>
+							<li data-filter=".oranges">총류</li>
+							<li data-filter=".fresh-meat">철학서적</li>
+							<li data-filter=".vegetables">종교서적</li>
+							<li data-filter=".fastfood">인문사회</li>
+							<li data-filter=".fastfood">순수문학</li>
+							<li data-filter=".fastfood">예술서적</li>
+							<li data-filter=".fastfood">언어관련</li>
+							<li data-filter=".fastfood">일반문화</li>
+							<li data-filter=".fastfood">역사서적</li>							
 						</ul>
 					</div>
 				</div>

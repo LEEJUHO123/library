@@ -15,7 +15,7 @@
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="home.do"><img src="img/logo.png" alt=""></a>
+			<a href="home.do"><img src="img/yedam.png" alt=""></a>
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
@@ -30,7 +30,6 @@
 					<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
 					<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>
 				</c:if>
-
 			</ul>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
@@ -50,16 +49,10 @@
 				</c:if>
 			</ul>
 		</nav>
-		<div id="mobile-menu-wrap"></div>
-		<div class="header__top__right__social">
-			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-				class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a>
-			<a href="#"><i class="fa fa-pinterest-p"></i></a>
-		</div>
+		<div id="mobile-menu-wrap"></div>		
 		<div class="humberger__menu__contact">
 			<ul>
-				<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-				<li>Free Shipping for all Order of $99</li>
+				<li><i class="fa fa-envelope"></i> abc@abc.com</li>				
 			</ul>
 		</div>
 	</div>
@@ -72,8 +65,7 @@
 					<div class="col-lg-6 col-md-6">
 						<div class="header__top__left">
 							<ul>
-								<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-								<li>Free Shipping for all Order of $99</li>
+								<li><i class="fa fa-envelope"></i> abc@abc.com</li>								
 							</ul>
 						</div>
 					</div>
@@ -104,7 +96,7 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="/library"><img src="img/logo.png" alt=""></a>
+						<a href="/library"><img src="img/yedam.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-9">
@@ -176,8 +168,8 @@
 								<i class="fa fa-phone"></i>
 							</div>
 							<div class="hero__search__phone__text">
-								<h5>(053)206-5798</h5>
-								<span>AN 09:00 - PM 18:00 </span>
+								<h5>(053)421-2460</h5>
+								<span>AM 09:00 - PM 18:00 </span>
 							</div>
 						</div>
 					</div>

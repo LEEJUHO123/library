@@ -15,23 +15,20 @@ public class SnsLogin implements Command {
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		MemberService dao = new MemberServiceImpl();
 		HttpSession session = request.getSession();
-		
 		String kakao = request.getParameter("kakao");
-		
 		MemberVO vo = new MemberVO();
-		vo.setId(kakao);		
-		
+		vo.setId(kakao);
+
 		vo = dao.MemberSelect(vo);
-		
-		if(vo != null) {
+		String data = "";
+		if (vo == null) {
+			data = "1";			
+		} else {
+			data = "2";
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("name", vo.getName());
-			return "home/home";
-		} else {
-			
-		}				
-		return "home/home";
-		
+		}
+		return "ajax:" + data;
 	}
 
 }

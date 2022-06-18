@@ -1,3 +1,6 @@
+<%@page import="co.team.library.member.vo.MemberVO"%>
+<%@page import="co.team.library.member.service.MemberService"%>
+<%@page import="co.team.library.member.serviceImpl.MemberServiceImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -77,7 +80,8 @@
                                             Login
                                         </a> -->
 										<hr>
-										<a href="#" onclick="kakaoLogin();"> <img src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+										<a href="#" onclick="kakaoLogin();"><img
+											src="//k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
 											width="222" alt="카카오 로그인 버튼" /></a>
 									</form>
 									<hr>
@@ -118,7 +122,7 @@
 	<!-- Page level custom scripts -->
 	<script src="js/demo/chart-area-demo.js"></script>
 	<script src="js/demo/chart-pie-demo.js"></script>
-	
+
 	<script>
 		Kakao.init('b2bbcde9516f44c6e5390f485167253f'); //발급받은 키 중 javascript키를 사용해준다.
 		console.log(Kakao.isInitialized()); // sdk초기화여부판단
@@ -137,12 +141,12 @@
 								},
 								dataType : "text",
 								success : function(data) {
-									console.log(data)
-									location.href = 'home.do'
+									if (data == "1") {
+										location.href = 'join.do';
+									} else if (data == "2") {
+										location.href = 'home.do';
+									}
 								}
-							 	fail : function(error) {
-									location.href = 'join.do'
-								}, 
 							})
 						},
 						fail : function(error) {
@@ -171,6 +175,6 @@
 			}
 		}
 	</script>
-	
+
 </body>
 </html>
