@@ -23,6 +23,10 @@
 		UPDATE MEMBER SET PASSWORD = #{password} WHERE ID = #{id}
 	</update>
 	
+	<update id="memberInfoUpdate" parameterType="co.team.library.member.vo.MemberVO">
+		UPDATE MEMBER SET TEL = #{tel}, ADDRESS = #{address}, POSTCODE = #{postCode} WHERE ID = #{id}
+	</update>
+	
 	<update id="memberUpdateBlack">
 	
 	</update>

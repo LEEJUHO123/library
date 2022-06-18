@@ -20,6 +20,8 @@ import co.team.library.contact.ContactCommand;
 import co.team.library.home.HomeCommand;
 import co.team.library.member.command.AddBlacklist;
 import co.team.library.member.command.Blacklist;
+import co.team.library.member.command.ChangeMyInfo;
+import co.team.library.member.command.ChangeMyInfoForm;
 import co.team.library.member.command.FindId;
 import co.team.library.member.command.FindIdResult;
 import co.team.library.member.command.FindPw;
@@ -30,7 +32,9 @@ import co.team.library.member.command.Login;
 import co.team.library.member.command.LoginForm;
 import co.team.library.member.command.Logout;
 import co.team.library.member.command.CheckMemberExit;
+import co.team.library.member.command.CheckPwFormMyInfo;
 import co.team.library.member.command.CheckPw;
+import co.team.library.member.command.CheckPwForMyInfo;
 import co.team.library.member.command.CheckPwForm;
 import co.team.library.member.command.MemberList;
 import co.team.library.member.command.RentalChart;
@@ -115,11 +119,14 @@ public class FrontController extends HttpServlet {
 		  map.put("/checkPw.do", new CheckPw());
 		  map.put("/changePwForm.do", new ChangePwForm());
 		  map.put("/changePw.do", new ChangePw());
+		  map.put("/checkPwFormMyInfo.do", new CheckPwFormMyInfo());
+		  map.put("/checkPwForMyInfo.do", new CheckPwForMyInfo());
+		  map.put("/changeMyInfoForm.do", new ChangeMyInfoForm());
+		  map.put("/changeMyInfo.do", new ChangeMyInfo());
 		  map.put("/memberExit.do", new MemberExit());
 		  map.put("/checkMemberExit.do", new CheckMemberExit());
 		  map.put("/nowRentalList.do", new NowRentalListCommand());
 		  map.put("/myRentalList.do", new MyRentalListCommand());
-		  map.put("infoMessage.do", new InfoMessage());
 
 	}
 

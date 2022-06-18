@@ -21,6 +21,7 @@ public class Login implements Command{
 		vo.setName(request.getParameter("name"));
 		vo.setTel(request.getParameter("tel"));
 		vo.setAddress(request.getParameter("address"));
+		vo.setPostCode(request.getParameter("postCode"));
 		vo = dao.MemberSelect(vo);
 		
 		
@@ -30,6 +31,7 @@ public class Login implements Command{
 			session.setAttribute("name", vo.getName());
 			session.setAttribute("tel", vo.getTel());
 			session.setAttribute("address", vo.getAddress());
+			session.setAttribute("postCode", vo.getPostCode());
 			return "home/home";
 		}else {
 			

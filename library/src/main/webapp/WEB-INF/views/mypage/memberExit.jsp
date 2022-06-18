@@ -44,6 +44,7 @@ fieldset {
 }
 </style>
 <script src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/mypage.js"></script>
 </head>
 <body>
 	<div class="container">
