@@ -14,23 +14,21 @@
 		</if>
 	</select>
 
-
-
 	<insert id="memberInsert">
 
 	
 	</insert>
 	
-	<update id="memberUpdate">
-	
+	<update id="memberPwUpdate" parameterType="co.team.library.member.vo.MemberVO">
+		UPDATE MEMBER SET PASSWORD = #{password} WHERE ID = #{id}
 	</update>
 	
 	<update id="memberUpdateBlack">
 	
 	</update>
 
-	<delete id="memberDelete">
-	
+	<delete id="memberExit" parameterType="co.team.library.member.vo.MemberVO">
+		DELETE MEMBER WHERE ID = #{id}
 	</delete>
 	
 	<select id="findId" resultType = "string">

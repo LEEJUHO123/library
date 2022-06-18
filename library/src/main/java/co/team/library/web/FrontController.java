@@ -29,8 +29,15 @@ import co.team.library.member.command.JoinAction;
 import co.team.library.member.command.Login;
 import co.team.library.member.command.LoginForm;
 import co.team.library.member.command.Logout;
+import co.team.library.member.command.CheckMemberExit;
+import co.team.library.member.command.CheckPw;
+import co.team.library.member.command.CheckPwForm;
 import co.team.library.member.command.MemberList;
 import co.team.library.member.command.RentalChart;
+import co.team.library.member.command.ChangePw;
+import co.team.library.member.command.ChangePwForm;
+import co.team.library.member.command.MemberExit;
+import co.team.library.mypage.command.InfoMessage;
 import co.team.library.member.command.SelectAllId;
 import co.team.library.member.command.SnsLogin;
 import co.team.library.mypage.command.MyInfoCommand;
@@ -104,8 +111,15 @@ public class FrontController extends HttpServlet {
 		  //마이페이지
 		  map.put("/mypageHome.do", new MypageHomeCommand());
 		  map.put("/myInfo.do", new MyInfoCommand());
+		  map.put("/checkPwForm.do", new CheckPwForm());
+		  map.put("/checkPw.do", new CheckPw());
+		  map.put("/changePwForm.do", new ChangePwForm());
+		  map.put("/changePw.do", new ChangePw());
+		  map.put("/memberExit.do", new MemberExit());
+		  map.put("/checkMemberExit.do", new CheckMemberExit());
 		  map.put("/nowRentalList.do", new NowRentalListCommand());
 		  map.put("/myRentalList.do", new MyRentalListCommand());
+		  map.put("infoMessage.do", new InfoMessage());
 
 	}
 
@@ -126,7 +140,7 @@ public class FrontController extends HttpServlet {
 			}else {
 				viewPage = viewPage + ".tiles";
 			}
-		
+
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage); // Dispatcher은 권한위임.
 		dispatcher.forward(request, response);

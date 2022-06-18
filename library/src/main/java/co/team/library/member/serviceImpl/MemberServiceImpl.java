@@ -31,16 +31,10 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int memberUpdate(MemberVO vo) {
-		return map.memberUpdate(vo);
+	public int memberPwUpdate(MemberVO vo) {
+		return map.memberPwUpdate(vo);
 	}
 
-	@Override
-	public int memberDelete(MemberVO vo) {
-		return map.memberDelete(vo);
-	}
-
-	
 
 	@Override
 	public String findId(MemberVO vo) {
@@ -76,6 +70,16 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String selectAllId(String id) {
 		return map.selectAllId(id);
+	}
+
+	@Override
+	public int memberInfoUpdate(MemberVO vo) {
+		return map.memberInfoUpdate(vo);
+	}
+
+	@Override
+	public int memberExit(MemberVO vo) {
+		return map.memberExit(vo);
 	}
 
 

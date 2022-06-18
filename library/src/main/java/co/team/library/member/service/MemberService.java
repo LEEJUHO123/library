@@ -11,9 +11,10 @@ public interface MemberService {
 	List<MemberVO> memberSelectList(); //전체리스트 (관리자 페이지)
 	MemberVO MemberSelect(MemberVO vo); // 한명조회 (마이페이지)
 	int memberInsert(MemberVO vo); // 추가 (가입)
-	int memberUpdate(MemberVO vo); // 변경 (마이페이지)
+	int memberPwUpdate(MemberVO vo); // 변경 (마이페이지)
+	int memberInfoUpdate(MemberVO vo); // 회원 정보 변경
+	int memberExit(MemberVO vo); // 정보삭제 (마이페이지)
 	String selectAllId(String id); //아이디 중복확인
-	int memberDelete(MemberVO vo); // 정보삭제 (마이페이지)
 	String findId(MemberVO vo); //아이디 찾기
 	String findPw(MemberVO vo); //비번 찾기
 	int join(MemberVO vo); // 회원가입

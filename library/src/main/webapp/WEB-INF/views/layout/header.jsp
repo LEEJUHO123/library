@@ -83,7 +83,7 @@
 								<ul>
 									<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
 									<li>${name }님
-									<li><a href="#">마이페이지</a>
+									<li><a href="mypageHome.do">마이페이지</a>
 									<li><a href="logout.do">Logout</a></li>
 								</ul>
 							</c:if>
