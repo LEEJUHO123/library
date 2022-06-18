@@ -14,18 +14,6 @@
 		</if>
 	</select>
 
-	<select id="memberBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
-      SELECT * FROM MEMBER
-      WHERE BLACK = 1
-   </select>
-   
-<!--    <select id="addBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
-     SELECT * FROM MEMBER
-      WHERE  NONPAYMENT = 2
-   
-   </select> -->
-
-
 	<insert id="memberInsert">
 
 	
@@ -41,7 +29,6 @@
 
 	<delete id="memberExit" parameterType="co.team.library.member.vo.MemberVO">
 		DELETE MEMBER WHERE ID = #{id}
-	
 	</delete>
 	
 	<select id="findId" resultType = "string">
@@ -60,16 +47,25 @@
 	<insert id="join" parameterType="co.team.library.member.vo.MemberVO">
 	
 	INSERT INTO MEMBER
-		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, 0)
+		VALUES(#{id}, #{password}, #{name}, #{tel}, #{address}, 0, 0, #{postCode})
 	</insert>
 	
+ 	 <select id="memberBlackSelectList" resultType="co.team.library.member.vo.MemberVO">
+      SELECT * FROM MEMBER
+      WHERE BLACK = 1
+   </select>
    
-<!--      <update id="memberUpdateBlack" parameterType="co.team.library.member.vo.MemberVO">
+   <select id="selectAllId" resultType="string">
+   	select id from member
+   	where id = #{id}
+   </select>
+   
+ <!--     <update id="memberUpdateBlack" parameterType="co.team.library.member.vo.MemberVO">
    UPDATE MEMBER SET BLACK = 1 WHERE ID=#{id}
-   </update>
-   
-     <update id="memberUpdatenormal" parameterType="co.team.library.member.vo.MemberVO">
-   UPDATE MEMBER SET BLACK = 0 WHERE ID=#{id}
    </update> -->
+   
+<!--      <update id="memberUpdatenormal" parameterType="co.team.library.member.vo.MemberVO">
+   UPDATE MEMBER SET BLACK = 0 WHERE ID=#{id}
+   </update>  -->
 
 </mapper>

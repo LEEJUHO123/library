@@ -29,14 +29,14 @@
        if (pwd != null) {
       %>
       
-      <div class = "container">
+      <div class = "container" align = "center">
       	<div class = "found-success">
-	      <h4>회원님의 비밀번호는 </h4>  
-	      <div class ="found-id"> <%=pwd%></div>
+	      <h4>회원님의 비밀번호는 </h4><br>
+	      <div class ="found-id"> <%=pwd%></div><br>
 	      <h4>  입니다 </h4>
-	     </div>
+	     </div><br>
 	     <div class = "found-login">
- 		    <input type="button" id="btnLogin" value="로그인" onClick = 'login()'/>
+ 		    <input type="button" id="btnLogin" value="로그인" onclick="location.href='loginForm.do'"/>
        	</div>
        </div>
       <%
@@ -48,7 +48,7 @@
 	     </div>
 	     <div class = "found-login">
  		    <input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
- 		    <input type="button" id="btnjoin" value="회원가입" onClick="joinin()" a href="join.do"/>
+ 		    <input type="button" id="btnjoin" value="회원가입" onclick="location.href='join.do'"/>
        	</div>
        </div>
        

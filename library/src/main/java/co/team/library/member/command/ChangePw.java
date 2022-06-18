@@ -18,9 +18,11 @@ public class ChangePw implements Command {
 		HttpSession session = request.getSession();
 		String password = request.getParameter("pswd");
 		String id = (String) session.getAttribute("id");
-		System.out.println(password+ " " + id);
+		member.setId(id);
+		member.setPassword(password);
 		int result = dao.memberPwUpdate(member);
 		if (result == 1) {
+			session.setAttribute("password", password);
 			return "ajax:" + 1;
 		}else {
 			return "ajax:" + 0;

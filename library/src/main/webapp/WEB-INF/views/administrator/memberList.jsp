@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form>
-	<div align="center">
+
+	<div>
 		<h1>회원 목록보기</h1>
 		<p>관리자만 볼 수 있는 회원정보 및 목록보기 게시판입니다.</p>
 		<div>
@@ -17,7 +17,7 @@
 				<h6>회원 목록</h6>
 			</div>
 				<div>
-					<table border="1" width="90%">
+					<table border="1">
 						<thead>
 							<tr>
 								<th>아이디</th>
@@ -34,7 +34,7 @@
 								<td>${m.password }</td>
 								<td>${m.name }</td>
 								<td>${m.tel }</td>
-								<td>${m.address } <c:if test="${m.name eq '김길동'}"><input type="button" value="블랙리스트 추가"></c:if></td>
+								<td>${m.address }</td>
 							</tr>
 							</c:forEach>
 						</tbody>
@@ -42,6 +42,6 @@
 			</div>
 		</div>
 	</div>
-</form>
+
 </body>
 </html>

@@ -69,7 +69,7 @@ function changePwCheck(){
 						alert("비밀번호 수정 완료");
 						window.location.href = 'myInfo.do';
 					}else{
-						alert("알 수 없는 오류로 인해 탈퇴에 실패했습니다.")
+						alert("알 수 없는 오류로 인해 수정에 실패했습니다.")
 					}
 				}
 			})

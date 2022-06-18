@@ -5,27 +5,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+	type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+	rel="stylesheet">
+	<link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <body>
-	<form name="idfindscreen" method = "POST">
+	<form name="idfindscreen" method = "POST" align="center" style="padding : 100px;">
 			<div class = "search-title">
-				<h3>휴대폰 본인확인</h3>
+				<h3>아이디 찾기</h3>
 			</div>
-		<section class = "form-search">
+			<div style="padding-top: 30px;"></div>
+		<section class = "form-search" align = "center"><br>
 			<div class = "find-name">
 				<label>이름</label>
-				<input type="text" name="name" class = "btn-name" placeholder = "등록한 이름">
+				<input type="text"  name="name" class = "btn-name" placeholder = "등록된 이름" style="margin-left: auto; margin-right: auto;">
 			<br>
 			</div>
+			<br>
 			<div class = "find-phone">
-				<label>번호</label>
-				<input type="text" onKeyup = "addHypen(this);" name="tel" class = "btn-phone" placeholder = "등록한 휴대폰 번호" maxlength="13">
+				<label>휴대폰 번호</label>
+				<input type="text" onKeyup = "addHypen(this);" name="tel" class = "btn-phone" placeholder = "-없이 입력하세요" maxlength="13" style="padding-right:15px; padding-left:15px">
 			</div>
 			<br>
 	</section>
 	<div class ="btnSearch">
-		<input type="button" name="enter" value="찾기"  onClick="id_search()">
-		<input type="button" name="cancle" value="취소" onClick="history.back()">
+	<div style="padding-top: 50px;"></div>
+		<input type="button" name="enter" value="찾기"  onClick="id_search()"style="margin-right: 50px; padding: 5px; padding-right:15px; padding-left:15px">
+		<input type="button" name="cancle" value="취소" onClick="history.back()" style="padding: 5px; padding-right:15px; padding-left:15px">
  	</div>
  </form>
 <script type="text/javascript" src="js/findinfo.js"></script>
