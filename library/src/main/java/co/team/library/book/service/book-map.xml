@@ -3,25 +3,39 @@
 <mapper namespace="co.team.library.book.service.BookMapper">
 
 	<select id="bookList" resultType="co.team.library.book.vo.BookVO">
-		SELECT * FROM BOOKLIST ORDER BY RENTALCOUNT,BOOKTITLE
+		SELECT * FROM BOOKLIST ORDER BY BOOKTITLE
 	</select>
 	
-	<select id="bookCategory" parameterType="String" resultType="co.team.library.book.vo.BookVO">
+	<select id="bookCategory" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
 		WHERE CATEGORY = #{category}
 		ORDER BY RENTALCOUNT,BOOKTITLE
 		<!-- 카테고리 형식 주의 ex)100(총류) / 숫자만 지정할 경우 쿼리문 변경해야함 -->
 	</select>
 	
-	<select id="bookWriter" parameterType="String" resultType="co.team.library.book.vo.BookVO">
+	<select id="rentalChart" resultType="co.team.library.book.vo.BookVO">
+	 	SELECT B.BOOKTITLE AS BOOKTITLE, COUNT(*) AS RENTALCOUNT
+		FROM RENTAL A LEFT OUTER JOIN BOOKLIST B
+		ON A.BOOKCODE = B.BOOKCODE
+		GROUP BY B.BOOKTITLE
+	</select>
+	
+	<select id="searchBookWriter" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
-		WHERE WRITER LIKE '%' ||#{writer}|| '%';
-		ORDER BY RENTALCOUNT,BOOKTITLE
+		WHERE WRITER LIKE '%'|| #{writer} ||'%'
+		ORDER BY BOOKTITLE
 	</select>
 
-	<select id="bookSearch" parameterType="String" resultType="co.team.library.book.vo.BookVO">
+	<select id="searchTitle" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
-		WHERE BOOKTITLE LIKE '%'|| #{keyword} ||'%';
+		WHERE BOOKTITLE LIKE '%'|| #{bookTitle} ||'%'
+	</select>
+	
+	<select id="searchKeyword" parameterType="co.team.library.book.vo.BookVO" resultType="co.team.library.book.vo.BookVO">
+		SELECT * FROM BOOKLIST
+		WHERE WRITER LIKE '%'|| #{writer} ||'%'
+        OR BOOKTITLE LIKE '%'|| #{bookTitle} ||'%'
+		ORDER BY BOOKTITLE
 	</select>
 	
 	<insert id="bookInsert" parameterType="co.team.library.book.vo.BookVO">

@@ -19,6 +19,7 @@
     </environment>
   </environments>
   <mappers>
+ 	 <mapper resource="co/team/library/book/service/book-map.xml"/>
      <mapper resource="co/team/library/member/service/Member-map.xml"/>
      <mapper resource="co/team/library/qna/service/qna-map.xml"/>
   </mappers>

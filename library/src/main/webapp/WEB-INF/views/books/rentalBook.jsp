@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
 		data-setbg="img/breadcrumb.jpg">
 		<div class="container">
@@ -177,6 +176,5 @@
 			</div>
 		</div>
 	</section>
-	<!-- Checkout Section End -->
 </body>
 </html>

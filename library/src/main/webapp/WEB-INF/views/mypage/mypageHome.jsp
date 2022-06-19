@@ -22,7 +22,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item" id="info_icon" href="myInfo.do">
                         <div class="blog__item__pic">
-                            <img src="img/mypage/myinfo.png" alt="">
+                            <a href="myInfo.do"><img src="img/mypage/myinfo.png" alt=""></a>
                         </div>
                         <div class="blog__item__text">
                             <h5><a href="myInfo.do">회원 정보 확인</a></h5>
@@ -32,7 +32,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item" id="info_icon">
                         <div class="blog__item__pic">
-                            <img src="img/mypage/book-1.png" alt="">
+                            <a href="nowRentalList.do"><img src="img/mypage/book-1.png" alt=""></a>
                         </div>
                         <div class="blog__item__text">
                             <h5><a href="nowRentalList.do">현재 대출중인 도서</a></h5>
@@ -42,7 +42,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item" id="info_icon">
                         <div class="blog__item__pic">
-                            <img src="img/mypage/book-2.png" alt="">
+                            <a href="myRentalList.do"><img src="img/mypage/book-2.png" alt=""></a>
                         </div>
                         <div class="blog__item__text">
                             <h5><a href="myRentalList.do">나의 대출 이력</a></h5>

@@ -2,6 +2,8 @@ package co.team.library.book.vo;
 
 import java.sql.Date;
 
+import lombok.Data;
+@Data
 public class BookVO {
 	private String bookCode;
 	private String bookTitle;
@@ -11,4 +13,5 @@ public class BookVO {
 	private int volume;
 	private String category;
 	private int rentalCount;
+	private String bookImg;
 }

@@ -11,10 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.team.library.books.BookCartCommand;
-import co.team.library.books.BookDetailsCommand;
-import co.team.library.books.BooksCommand;
-import co.team.library.books.RentalBookCommand;
+import co.team.library.book.command.BookCartCommand;
+import co.team.library.book.command.BookDetailsCommand;
+import co.team.library.book.command.BookSearch;
+import co.team.library.book.command.BooksCommand;
+import co.team.library.book.command.RentalBookCommand;
 import co.team.library.comm.Command;
 import co.team.library.contact.ContactCommand;
 import co.team.library.home.HomeCommand;
@@ -37,6 +38,7 @@ import co.team.library.member.command.CheckPw;
 import co.team.library.member.command.CheckPwForMyInfo;
 import co.team.library.member.command.CheckPwForm;
 import co.team.library.member.command.MemberList;
+import co.team.library.member.command.Rental;
 import co.team.library.member.command.RentalChart;
 import co.team.library.member.command.ChangePw;
 import co.team.library.member.command.ChangePwForm;
@@ -75,6 +77,7 @@ public class FrontController extends HttpServlet {
 		map.put("/bookDetails.do", new BookDetailsCommand());
 		map.put("/bookCart.do", new BookCartCommand());
 		map.put("/rentalBook.do", new RentalBookCommand());
+		map.put("/bookSearch.do", new BookSearch());
 		
 		//QnA
 		map.put("/qnaInputForm.do", new QnaInputForm());
@@ -83,12 +86,6 @@ public class FrontController extends HttpServlet {
 		map.put("/qnaSelect.do", new QnaSelect());
 		map.put("/ajaxSearchList.do", new AjaxSearchList());
 		
-		
-		/*
-		 * map.put("/mypageHome.do", new MypageHomeCommand()); map.put("/myInfo.do", new
-		 * MyInfoCommand()); map.put("/nowRentalList.do", new NowRentalListCommand());
-		 * map.put("/myRentalList.do", new MyRentalListCommand());
-		 */
 		
 		//로그인
 		map.put("/login.do", new Login());
@@ -111,6 +108,7 @@ public class FrontController extends HttpServlet {
 //		/* map.put("/categoryChart.do" new CategoryChart()); */
 		 map.put("/memberList.do", new MemberList());
 		  map.put("/rentalChart.do", new RentalChart());
+		  map.put("rental.do", new Rental());
 		 
 		  //마이페이지
 		  map.put("/mypageHome.do", new MypageHomeCommand());
@@ -136,7 +134,9 @@ public class FrontController extends HttpServlet {
 		String uri = request.getRequestURI(); // 요청 URI 구함
 		String contextPath = request.getContextPath(); // 루트 디렉토리 정보
 		String page = uri.substring(contextPath.length());; // contextPath.length()(<-이걸빼면) 이 다음부터는 들어가는게 페이지다. ,, 실제 요청 명령을 받음
+		System.out.println(page);
 		Command command = map.get(page); //맵에서 키를 던져주니 나한테 던져주는건 밸류(커맨드)를 돌아온다 즉 커맨드를 구한다
+		System.out.println(command);
 		String viewPage = command.exec(request, response); // exec를 찾을때 맨끝에 String이 붙어서 나오는데 돌려받는값이 스트링인걸 알수있다.
 		if(!viewPage.endsWith(".do")) {			
 			if(viewPage.startsWith("ajax:")) {

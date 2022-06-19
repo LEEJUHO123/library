@@ -14,7 +14,7 @@ function pwCheckToMemberExit() {
 			success: function(data) {
 				if (data == "1") {
 					alert("정상적으로 탈퇴되었습니다.");
-					window.location.href = 'home.do';
+					window.location.href = 'home.do';kdldyd
 				} else if (data == "2") {
 					alert("알 수 없는 오류로 인해 탈퇴에 실패했습니다.")
 				} else if (data == "3") {

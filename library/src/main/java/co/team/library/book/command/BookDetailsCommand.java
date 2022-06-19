@@ -1,4 +1,4 @@
-package co.team.library.books;
+package co.team.library.book.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -158,17 +158,16 @@
 				<div class="col-lg-9">
 					<div class="hero__search">
 						<div class="hero__search__form">
-							<form action="#">
+							<form>
 								<div class="hero__search__categories">
-									<select class="book__search">
-										<option selected>전체검색</option>
-										<option>제목</option>
-										<option>카테고리</option>
-										<option>저자</option>
+									<select class="book__search" id="select">
+										<option id="key" value="allList" selected>전체검색</option>
+										<option id="key" value="title">제목</option>
+										<option id="key" value="writer">저자</option>
 									</select>
 								</div>
-								<input type="text" placeholder="What do yo u need?">
-								<button type="submit" class="site-btn">SEARCH</button>
+								<input type="text" id="keyword" placeholder="검색어를 입력하세요">
+								<button type="button" class="site-btn" onclick="bookSearch()">SEARCH</button>
 							</form>
 						</div>
 						<div class="hero__search__phone">
