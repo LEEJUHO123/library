@@ -28,32 +28,31 @@
       <%
        if (pwd != null) {
       %>
-      
       <div class = "container" align = "center">
-      	<div class = "found-success">
+      	<div class = "found-success"><br>
 	      <h4>회원님의 비밀번호는 </h4><br>
 	      <div class ="found-id"> <%=pwd%></div><br>
 	      <h4>  입니다 </h4>
 	     </div><br>
 	     <div class = "found-login">
- 		    <input type="button" id="btnLogin" value="로그인" onclick="location.href='loginForm.do'"/>
+ 		    <input type="button" class="btn btn-info" id="btnLogin" value="로그인" onclick="location.href='loginForm.do'" style="padding: 5px; padding-right:15px; padding-left:15px"/>
        	</div>
-       </div>
+       </div><br><br>
       <%
   } else {
  %>
-        <div class = "container">
+        <div class = "container" align = "center">
       	<div class = "found-fail">
 	      <h4>  등록된 정보가 없습니다 </h4>  
-	     </div>
+	     </div><br><br><br>
 	     <div class = "found-login">
- 		    <input type="button" id="btnback" value="다시 찾기" onClick="history.back()"/>
- 		    <input type="button" id="btnjoin" value="회원가입" onclick="location.href='join.do'"/>
+ 		    <input type="button" class="btn btn-secondary" id="btnback" value="다시 찾기" onClick="location.href='findPw.do'" style="margin-right: 50px; padding: 5px; padding-right:15px; padding-left:15px"/>
+ 		    <input type="button"  class="btn btn-success" id="btnjoin" value="회원가입" onclick="location.href='join.do'" style="padding: 5px; padding-right:15px; padding-left:15px"/>
        	</div>
-       </div>
+       </div><br><br>
        
 <div class = "adcontainer">
-	<a href="#" ><img src = "../images/casead.png" /></a>                
+<!-- 	<a href="#" ><img src = "../images/casead.png" /></a>       -->          
 </div>
        
        <%

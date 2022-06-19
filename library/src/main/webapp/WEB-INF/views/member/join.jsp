@@ -24,7 +24,7 @@
 	...
 
 	<%
-request.setCharacterEncoding("UTF-8");
+ request.setCharacterEncoding("UTF-8");
 String id = request.getParameter("id");
 String password = request.getParameter("password");
 String name = request.getParameter("name");
@@ -36,7 +36,7 @@ vo.setPassword(password);
 vo.setName(name);
 vo.setTel(tel);
 vo.setAddress(address);
-MemberService dao = new MemberServiceImpl();
+MemberService dao = new MemberServiceImpl(); 
 %>
 	<div align="center" style="margin-bottom: 50px;">
 		<font size="6" class="h4 text-gray-900 mb-4"
@@ -48,6 +48,7 @@ MemberService dao = new MemberServiceImpl();
 			<div class="content-center">
 				<form method="post" action="joinAction.do" id="regForm" name="regForm" onsubmit="return fn_submitChk();">
 
+<!--  -->
 					<div class="form-group">
 
 						<div class="form-group">
@@ -55,7 +56,7 @@ MemberService dao = new MemberServiceImpl();
 							<input type="email" class="form-control" id="id" name="id"
 								placeholder="아이디(이메일 형식)" required onkeydown="inputIdChk()">
 
-							<button type="button" class="id_overlap_button" id="idChk"
+							<button type="button" class="idChk" id="idChk"
 								value="N" onclick="fn_idChk();">중복확인</button>
 							<img id="id_check_sucess" style="display: none;">
 						</div>
@@ -109,13 +110,13 @@ MemberService dao = new MemberServiceImpl();
 						<span id="guide" style="color: #999; display: none"></span> 
 						<input type="text" class="form-control" id="detailAddress" name="detailAddress" placeholder="상세주소" required>
 					</div>
-					<br> <input type="submit" class="btn btn-info"
+					<br> <input type="submit" class="btn btn-success"
 						style="padding: 10px; padding-right: 150px; padding-left: 150px"
 						value="가입하기">
 
 
 				</form>
-				<br> <br> <input type="reset" class="btn btn-info"
+				<br> <br> <input type="reset" class="btn btn-secondary"
 					style="padding: 10px; padding-right: 160px; padding-left: 160px"
 					value="취소" onclick="location.href='home.do'">
 			</div>
@@ -152,7 +153,11 @@ MemberService dao = new MemberServiceImpl();
 					regForm.id.focus();
 					alert("아이디 중복 확인이 필요합니다");
 					return false;
-				}
+					
+				}else if($("#idChk").val()=="Y"){
+					$("#regForm").submit();
+					
+				} 
 			 
 		 }
 		 
@@ -193,9 +198,11 @@ MemberService dao = new MemberServiceImpl();
 						alert("아이디를 입력해주세요");
 					}else{
 						if(data == 1){
+							$("#idChk").attr("value", "Y");
 							alert("사용 가능한 아이디입니다")
 							
 						}else{
+							$("#idChk").attr("value", "N");
 							alert("이미 존재하는 아이디입니다")
 						}
 					}

@@ -16,6 +16,7 @@ public class SelectAllId implements Command {
 		String id = request.getParameter("id");
 		String result = service.selectAllId(id);
 		
+		System.out.println(id);
 		if(result == null) {
 			return "ajax:" + 1;
 		}else {

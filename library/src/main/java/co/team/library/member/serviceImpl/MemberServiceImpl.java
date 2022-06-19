@@ -43,9 +43,7 @@ public class MemberServiceImpl implements MemberService{
 	
 
 	@Override
-	public String findId(MemberVO vo) {
-		System.out.println(vo.toString());
-		System.out.println(map.findId(vo));
+	public List<MemberVO> findId(MemberVO vo) {
 		return map.findId(vo);
 	}
 
@@ -63,19 +61,46 @@ public class MemberServiceImpl implements MemberService{
 	public List<MemberVO> memberBlackSelectList() {
 		return map.memberBlackSelectList();
 	}
-	@Override
-	public int memberUpdateBlack(MemberVO vo) {
-		return map.memberUpdateBlack(vo);
-	}
-
-	@Override
-	public int memberUpdatenormal(MemberVO vo) {
-		return map.memberUpdatenormal(vo);
-	}
+	
+//	@Override
+//	public int memberUpdateBlack(MemberVO vo) {
+//		return map.memberUpdateBlack(vo);
+//	}
+//
+//	@Override
+//	public int memberUpdatenormal(MemberVO vo) {
+//		return map.memberUpdatenormal(vo);
+//	}
 
 	@Override
 	public String selectAllId(String id) {
 		return map.selectAllId(id);
+	}
+
+	@Override
+	public MemberVO MemberChart(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	@Override
+	public int boardListCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int boardListCount1() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int boardListCount2() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

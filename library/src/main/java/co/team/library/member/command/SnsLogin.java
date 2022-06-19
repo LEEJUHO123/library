@@ -18,19 +18,24 @@ public class SnsLogin implements Command {
 		
 		String kakao = request.getParameter("kakao");
 		
+		
 		MemberVO vo = new MemberVO();
-		vo.setId(kakao);		
+		vo.setId(kakao);
+		
 		
 		vo = dao.MemberSelect(vo);
 		
+		System.out.println(vo);
+		
 		if(vo != null) {
+			
 			session.setAttribute("id", vo.getId());
 			session.setAttribute("name", vo.getName());
-			return "home/home";
-		} else {
+			return "ajax:" + 1 ;
+		} else if(vo ==null){
 			
 		}				
-		return "home/home";
+		return "ajax:" + 2;	
 		
 	}
 

@@ -24,8 +24,8 @@
 
 
 
-	<insert id="memberInsert">
-
+	<insert id="memberInsert" parameterType="co.team.library.member.vo.MemberVO">
+		
 	
 	</insert>
 	
@@ -41,16 +41,16 @@
 	
 	</delete>
 	
-	<select id="findId" resultType = "string">
+	<select id="findId" resultType = "co.team.library.member.vo.MemberVO">
 		select id from member
-		where name=#{name}
-		and tel=#{tel}
+		where name = #{name}
+		and tel = #{tel}
 	</select>
 	
 	<select id="findPw" resultType = "string">
 		select password from member
-		where id=#{id}
-		and tel=#{tel}
+		where id = #{id}
+		and tel = #{tel}
 	
 	</select>
 

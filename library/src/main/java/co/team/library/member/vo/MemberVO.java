@@ -16,4 +16,6 @@ public class MemberVO {
 	private String address;
 	private String postCode;
 	private int black;
+	
+
 }

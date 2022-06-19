@@ -72,7 +72,7 @@
 											</div>
 										</div>
 										<button type="submit"
-											class="btn btn-primary btn-user btn-block" value="login">로그인</button>
+											class="btn btn-info btn-user btn-block" value="login">로그인</button>
 										<!-- = <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a> -->
@@ -82,13 +82,13 @@
 									</form>
 									<hr>
 									<div class="text-center">
-										<a class="small" href="findId.do">아이디 찾기 </a>
-									</div>
+										<a class="btn btn-outline-info" href="findId.do">아이디 찾기 </a>
+									</div><br>
 									<div class="text-center">
-										<a class="small" href="findPw.do"> 비밀번호 찾기</a>
-									</div>
+										<a class="btn btn-outline-info" href="findPw.do"> 비밀번호 찾기</a>
+									</div><br>
 									<div class="text-center">
-										<a class="small" href="join.do">회원가입</a>
+										<a class="btn btn-success" href="join.do">회원가입</a>
 									</div>
 								</div>
 							</div>
@@ -122,6 +122,7 @@
 	<script>
 		Kakao.init('b2bbcde9516f44c6e5390f485167253f'); //발급받은 키 중 javascript키를 사용해준다.
 		console.log(Kakao.isInitialized()); // sdk초기화여부판단
+		
 		//카카오로그인
 		function kakaoLogin() {
 			Kakao.Auth.login({
@@ -140,9 +141,6 @@
 									console.log(data)
 									location.href = 'home.do'
 								}
-							 	fail : function(error) {
-									location.href = 'join.do'
-								}, 
 							})
 						},
 						fail : function(error) {
