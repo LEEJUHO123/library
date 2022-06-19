@@ -1563,7 +1563,8 @@ ul, ol {
 }
 
 .product__item__pic {
-	height: 270px;
+	height: 400px;
+	background-size: contain;
 	position: relative;
 	overflow: hidden;
 }
@@ -2311,7 +2312,8 @@ ul, ol {
 	font-size: 16px;
 	color: #1c1c1c;
 	line-height: 36px;
-	list-style: none;	
+	list-style: none;
+	float: left;
 }
 
 .footer__about__logo {

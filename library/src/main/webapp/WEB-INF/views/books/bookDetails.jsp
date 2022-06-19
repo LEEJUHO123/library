@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+
 </head>
-<body>
+<body>	
 	<!-- Breadcrumb Section Begin -->
-	<section class="breadcrumb-section set-bg"
-		data-setbg="img/banner3.jpg">
+	<section class="breadcrumb-section set-bg" data-setbg="img/banner3.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -26,7 +29,7 @@
 	<!-- Breadcrumb Section End -->
 
 	<!-- Product Details Section Begin -->
-	<section class="product-details spad">
+	<section class="product-details spad">	
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6">
@@ -49,13 +52,8 @@
 				</div>
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
-						<h3>반지의 제왕 1-3권+호빗 세트</h3>
-						<div class="product__details__rating">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
-						</div>
-						<div class="product__details__price">148,500원</div>
+						<h3>${bookTitle }</h3>
+
 						<p>20세기 판타지 문학의 걸작 『반지의 제왕』, 새롭게 태어나다! 국내 최초 60주년판 완역 전면 개정!
 
 							모든 힘을 지배할 절대반지를 갖게 된 호빗 ‘프로도’가 악의 세력을 물리치고 절대반지를 파괴하기 위해 목숨을 건
@@ -64,15 +62,10 @@
 							책의 완성도를 높여나갔다. 2004년 하퍼콜린스에서 출간된 50주년 기념판의 서문에서 편집자는 초판에 비해
 							300~400개의 수정이 이루어졌다고 밝혔고, 이후 크리스토퍼 톨킨이 편집에 참여하여 추가적인 수정을 진행한 60주년
 							기념판이 2014년에 출간되었다.</p>
-						<div class="product__details__quantity">
-							<div class="quantity">
-								<div class="pro-qty">
-									<input type="text" value="1">
-								</div>
-							</div>
+						<div class="product__details__quantity">							
 						</div>
-						<a href="#" class="primary-btn">ADD TO CARD</a> <a href="#"
-							class="heart-icon"><span class="icon_heart_alt"></span></a>						
+						<a href="#" class="primary-btn">대여하기</a> <a href="#"
+							class="heart-icon"><span class="icon_heart_alt"></span></a>
 					</div>
 				</div>
 				<div class="col-lg-12">

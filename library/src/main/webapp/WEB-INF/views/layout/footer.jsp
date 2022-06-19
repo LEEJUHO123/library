@@ -17,7 +17,9 @@
 						</div>
 						<ul>
 							<li>Address: 대구 중구 남일동 중앙대로 403</li>
+							<li>|</li>
 							<li>Phone: (053)421-2460</li>
+							<li>|</li>
 							<li>Email: abc@abc.com</li>
 						</ul>
 					</div>

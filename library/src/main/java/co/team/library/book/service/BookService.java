@@ -9,6 +9,7 @@ public interface BookService {
 	List<BookVO> searchBookCategory(String category); // 책 카테고리(총류)별 조회
 	List<BookVO> searchBookWriter(String writer); // 책 저자 조회
 	List<BookVO> searchBookSearch(String keyword); // 책 검색
+	String bookDetail(String title);
 	
 	// 관리자만 가능한 영역
 	BookVO bookInsert(BookVO vo); // 책 등록

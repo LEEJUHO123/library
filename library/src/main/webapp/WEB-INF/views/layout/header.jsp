@@ -42,8 +42,8 @@
 						<li><a href="bookCart.do">담아두기</a></li>
 						<li><a href="rentalBook.do">대여하기</a></li>
 					</ul></li>
-				<li><a href="contact.do">Contact</a></li>
-				<li><a href="#">QnA</a></li>
+				<li><a href="qnaList.do">QnA</a></li>
+				<li><a href="contact.do">찾아오는길</a></li>
 				<c:if test="${id eq 'abc@abc.com' }">
 					<li><a href="#">관리자메뉴</a></li>
 				</c:if>
@@ -109,9 +109,9 @@
 									<li><a href="bookDetails.do">도서상세</a></li>
 									<li><a href="bookCart.do">담아두기</a></li>
 									<li><a href="rentalBook.do">대여하기</a></li>
-								</ul></li>
-							<li><a href="contact.do">Contact</a></li>
-							<li><a href="#">QnA</a></li>
+								</ul></li>							
+							<li><a href="qnaList.do">QnA</a></li>
+							<li><a href="contact.do">찾아오는길</a></li>
 							<c:if test="${id eq 'abc@abc.com' }">
 								<li><a href="admin.do">관리자메뉴</a></li>
 							</c:if>

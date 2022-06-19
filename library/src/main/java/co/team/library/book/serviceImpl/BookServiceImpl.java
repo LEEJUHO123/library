@@ -44,4 +44,9 @@ public class BookServiceImpl implements BookService {
 		return map.bookDelete(bookCode);
 	}
 
+	@Override
+	public BookVO bookDetail(String title) {
+		return map.bookDetail(title);
+	}
+
 }

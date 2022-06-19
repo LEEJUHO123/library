@@ -3,31 +3,35 @@
 <mapper namespace="co.team.library.book.service.BookMapper">
 
 	<select id="bookList" resultType="co.team.library.book.vo.BookVO">
-		SELECT * FROM BOOKLIST ORDER BY RENTALCOUNT,BOOKTITLE
+		SELECT * FROM BOOKLIST ORDER BY RENTAL,BOOKTITLE
 	</select>
 	
 	<select id="bookCategory" parameterType="String" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
 		WHERE CATEGORY = #{category}
-		ORDER BY RENTALCOUNT,BOOKTITLE
+		ORDER BY RENTAL,BOOKTITLE
 		<!-- 카테고리 형식 주의 ex)100(총류) / 숫자만 지정할 경우 쿼리문 변경해야함 -->
 	</select>
 	
 	<select id="bookWriter" parameterType="String" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
 		WHERE WRITER LIKE '%' ||#{writer}|| '%';
-		ORDER BY RENTALCOUNT,BOOKTITLE
+		ORDER BY RENTAL,BOOKTITLE
 	</select>
 
 	<select id="bookSearch" parameterType="String" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
 		WHERE BOOKTITLE LIKE '%'|| #{keyword} ||'%';
-	</select>
+	</select>	
 	
 	<insert id="bookInsert" parameterType="co.team.library.book.vo.BookVO">
 		INSERT INTO BOOKLIST
 		VALUES(#{bookCode},#{bookTitle},#{writer},#{publisher},0,#{volume},#{category},0)
 	</insert>
+	
+	<select id="bookDetail" parameterType="co.team.library.book.vo.BookVO" resultType="string">
+		SELECT * FROM BOOKLIST WHERE BOOKTITLE = #{BOOKTITLE}
+	</select>
 
 	<delete id="bookDelete" parameterType="String">
 		DELETE FROM BOOKLIST WHERE BOOKCODE=#{bookCode}
