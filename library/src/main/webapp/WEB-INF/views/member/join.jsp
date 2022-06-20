@@ -21,7 +21,7 @@
 <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 <body>
-	...
+
 
 	<%
  request.setCharacterEncoding("UTF-8");
@@ -38,9 +38,9 @@ vo.setTel(tel);
 vo.setAddress(address);
 MemberService dao = new MemberServiceImpl(); 
 %>
-	<div align="center" style="margin-bottom: 50px;">
+	<div align="center" style="margin-bottom: 50px; margin : 50px" class="content-center" >
 		<font size="6" class="h4 text-gray-900 mb-4"
-			style="text-align: center;">회원가입</font>
+			style="text-align: center;">회원가입</font><hr>
 	</div>
 	<div class="container" align="center">
 		<!-- <div class="col-lg-4"></div> -->
@@ -48,7 +48,7 @@ MemberService dao = new MemberServiceImpl();
 			<div class="content-center">
 				<form method="post" action="joinAction.do" id="regForm" name="regForm" onsubmit="return fn_submitChk();">
 
-<!--  -->
+
 					<div class="form-group">
 
 						<div class="form-group">
@@ -58,13 +58,8 @@ MemberService dao = new MemberServiceImpl();
 
 							<button type="button" class="idChk" id="idChk"
 								value="N" onclick="fn_idChk();">중복확인</button>
-							<img id="id_check_sucess" style="display: none;">
+<!-- 							<img id="id_check_sucess" style="display: none;"> -->
 						</div>
-
-						<!-- <input type="email" id="id" class="username_input" placeholder="아이디 (이메일형식)" name="id" maxlength="20"  check_result="fail" required> -->
-						<!-- <button type="button" class="id_overlap_button"
-							onclick="id_overlap_check()">중복확인</button> -->
-						<!-- <img id="id_check_sucess" style="display: none;"> -->
 
 
 						<!-- <input type="hidden" id="idDuplication" value="idUncheck"> -->
@@ -109,7 +104,7 @@ MemberService dao = new MemberServiceImpl();
 							<input type="text" class="form-control" id="jibunAddress" name="jibunAddress" placeholder="지번주소" required><br>
 						<span id="guide" style="color: #999; display: none"></span> 
 						<input type="text" class="form-control" id="detailAddress" name="detailAddress" placeholder="상세주소" required>
-					</div>
+					</div><hr>
 					<br> <input type="submit" class="btn btn-success"
 						style="padding: 10px; padding-right: 150px; padding-left: 150px"
 						value="가입하기">

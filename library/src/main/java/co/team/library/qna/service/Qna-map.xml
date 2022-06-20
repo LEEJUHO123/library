@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.team.library.qna.service.QnaMapper">
+
+	<select id="qnaList" resultType="co.team.library.qna.vo.QnaVO">
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, A.*
+		FROM(
+		SELECT * FROM QNA ORDER BY
+		BOARDNUMBER DESC
+		)A
+		)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="replyList"
+		parameterType="co.team.library.reply.vo.ReplyVO"
+		resultType="co.team.library.reply.vo.ReplyVO">
+		SELECT * FROM QNA_REPLY WHERE BOARDNUMBER = #{boardNumber}
+	</select>
+	
+
+	<select id="qnaListCount" resultType="int">
+		SELECT COUNT(*) FROM QNA
+	</select>
+
+	<select id="qnaSearchList"
+		resultType="co.team.library.qna.vo.QnaVO">
+		SELECT * FROM QNA
+		<if test="key == 1 || key == 2||key == 3||key == 4">where</if>
+		<if test="key == 1"> 1 = 1</if>
+		<if test="key == 2"> ID = #{val}</if>
+		<if test="key == 3"> TITLE LIKE '%'|| #{val} ||'%'</if>
+		<if test="key == 4"> CONTENT LIKE '%'|| #{val} ||'%'</if>
+		ORDER BY BOARDNUMBER DESC
+	</select>
+
+	<select id="qnaDetail"
+		parameterType="co.team.library.qna.vo.QnaVO"
+		resultType="co.team.library.qna.vo.QnaVO">
+		SELECT * FROM QNA WHERE BOARDNUMBER = #{boardNumber}
+	</select>
+	
+
+	<insert id="qnaInsert"
+		parameterType="co.team.library.qna.vo.QnaVO">
+		INSERT INTO QNA
+		VALUES(q_seq.nextval,#{id},#{title},#{content},#{wdate})
+	</insert>
+
+	<update id="qnaUpdate"
+		parameterType="co.team.library.qna.vo.QnaVO">
+		UPDATE qna
+           SET
+        <if test="content != null">
+            CONTENT = #{content}
+        </if>
+        <if test="content != null and title != null"> , </if>
+        <if test="title != null">
+            TITLE = #{title}
+        </if>
+        WHERE BOARDNUMBER = #{boardNumber}
+    </update>
+
+	<delete id="qnaDelete"
+		parameterType="co.team.library.qna.vo.QnaVO">
+		DELETE FROM QNA WHERE BOARDNUMBER = #{boardNumber}
+	</delete>
+</mapper>

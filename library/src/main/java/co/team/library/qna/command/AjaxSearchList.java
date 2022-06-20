@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import co.team.library.comm.Command;
 import co.team.library.qna.service.QnaService;
 import co.team.library.qna.serviceImpl.QnaServiceImpl;
-import co.team.library.qnavo.QnaVO;
+import co.team.library.qna.vo.QnaVO;
 
 public class AjaxSearchList implements Command {
 

@@ -2,25 +2,65 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.team.library.rental.service.RentalMapper">
 	<select id="allMemberRentalList" resultType="co.team.library.rental.vo.RentalVO">
-		SELECT * FROM ORDER BY RENTALDATE DESC;
+		SELECT * FROM ORDER BY RENTALDATE DESC
 	</select>
 	
 	<select id="myRentalList" parameterType="String" resultType="co.team.library.rental.vo.RentalVO">
-		SELECT * FROM RENTAL
+		SELECT ID, A.BOOKTITLE AS BOOKTITLE, RENTALDATE, RETURNDATE, RETURNORNOT
+		FROM BOOKLIST A INNER JOIN RENTAL B
+		ON A.BOOKCODE = B.BOOKCODE
 		WHERE ID = #{id}
 		ORDER BY RENTALDATE DESC
 	</select>
 	
 	<select id="nowRentalList" parameterType="String" resultType="co.team.library.rental.vo.RentalVO">
 		<![CDATA[
-		SELECT * FROM RENTAL
+		SELECT ID, A.BOOKTITLE AS BOOKTITLE, RENTALDATE, RETURNDATE, RETURNORNOT
+		FROM BOOKLIST A INNER JOIN RENTAL B
+		ON A.BOOKCODE = B.BOOKCODE
 		WHERE ID = #{id}
-		AND RENTALDATE <= SYSDATE
-        AND SYSDATE <= RETURNDATE
-        AND RETURN != 1	
+		AND B.RENTALDATE <= SYSDATE
+        AND B.RETURNORNOT != 1	
         ORDER BY RENTALDATE DESC
         ]]>
-		
+	
 	</select>
+
+	<select id="memberRentalList"
+		resultType="co.team.library.rental.vo.RentalVO">
+
+		SELECT *
+		FROM (
+		SELECT ROWNUM RN, A.*
+		FROM (
+		SELECT * FROM RENTAL ORDER BY RENTALDATE ASC
+		) A
+		)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="boardListCount3" resultType="int">
+		SELECT COUNT(*) FROM
+		RENTAL
+	</select>
+	
+	<insert id="rentalBook" parameterType="co.team.library.book.vo.BookVO">
+		insert into rental values(#{id}, #{bookCode}, sysdate, sysdate+7, DEFAULT)
+		
+	</insert>
+	
+	<select id="bestseller" resultType="co.team.library.book.vo.BookVO">
+	    <![CDATA[
+        select t.bookcode, t.booktitle
+        from (select A.BOOKCODE AS BOOKCODE, A.BOOKTITLE AS BOOKTITLE,
+		A.PUBLISHER AS PUBLISHER, A.WRITER AS WRITER,A.IMAGE AS IMAGE, NVL(COUNT, 0) AS RENTALCOUNT
+        FROM BOOKLIST A LEFT OUTER JOIN  (SELECT BOOKCODE, COUNT(bookcode) AS COUNT FROM RENTAL
+        GROUP BY BOOKCODE) B
+        ON A.BOOKCODE = B.BOOKCODE
+        ORDER BY RENTALCOUNT DESC) t
+        where rownum <=5;
+        ]]>
+	</select>
+	
 	
 </mapper>

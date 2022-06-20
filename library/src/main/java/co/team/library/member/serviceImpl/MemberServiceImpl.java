@@ -2,12 +2,12 @@ package co.team.library.member.serviceImpl;
 
 import java.util.List;
 
-
 import org.apache.ibatis.session.SqlSession;
 
 import co.team.library.comm.DataSource;
 import co.team.library.member.service.MemberMapper;
 import co.team.library.member.service.MemberService;
+import co.team.library.member.vo.BoardPage;
 import co.team.library.member.vo.MemberVO;
 
 public class MemberServiceImpl implements MemberService{
@@ -16,10 +16,19 @@ public class MemberServiceImpl implements MemberService{
 	
 	
 	@Override
-	public List<MemberVO> memberSelectList() {
-		return map.memberSelectList();
+	public List<MemberVO> memberSelectList(BoardPage page) {
+		return map.memberSelectList(page);
 	}
 
+	@Override
+	public List<MemberVO> memberBlackSelectList(BoardPage page) {
+		return map.memberBlackSelectList(page);
+	}
+	
+	@Override
+	public List<MemberVO> addBlackSelectList(BoardPage page) {
+		return map.addBlackSelectList(page);
+	}
 	@Override
 	public MemberVO MemberSelect(MemberVO vo) {
 		return map.MemberSelect(vo);
@@ -31,13 +40,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int memberUpdate(MemberVO vo) {
-		return map.memberUpdate(vo);
-	}
-
-	@Override
-	public int memberDelete(MemberVO vo) {
-		return map.memberDelete(vo);
+	public int memberExit(MemberVO vo) {
+		return map.memberExit(vo);
 	}
 
 	
@@ -57,20 +61,6 @@ public class MemberServiceImpl implements MemberService{
 		return map.join(vo);
 	}
 
-	@Override
-	public List<MemberVO> memberBlackSelectList() {
-		return map.memberBlackSelectList();
-	}
-	
-//	@Override
-//	public int memberUpdateBlack(MemberVO vo) {
-//		return map.memberUpdateBlack(vo);
-//	}
-//
-//	@Override
-//	public int memberUpdatenormal(MemberVO vo) {
-//		return map.memberUpdatenormal(vo);
-//	}
 
 	@Override
 	public String selectAllId(String id) {
@@ -79,30 +69,39 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberVO MemberChart(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return map.MemberChart(vo);
 	}
 
-	
+	@Override
+	public int blackUpdate(MemberVO vo) {
+		
+		return map.blackUpdate(vo);
+	}
 
 	@Override
 	public int boardListCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return map.boardListCount();
 	}
 
 	@Override
 	public int boardListCount1() {
-		// TODO Auto-generated method stub
-		return 0;
+		return map.boardListCount1();
 	}
 
 	@Override
 	public int boardListCount2() {
-		// TODO Auto-generated method stub
-		return 0;
+		return map.boardListCount2();
 	}
 
+	@Override
+	public int memberPwUpdate(MemberVO vo) {
+		return map.memberPwUpdate(vo);
+	}
+
+	@Override
+	public int memberInfoUpdate(MemberVO vo) {
+		return map.memberInfoUpdate(vo);
+	}
 
 	
 }

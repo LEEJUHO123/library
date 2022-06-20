@@ -50,8 +50,8 @@
 							<div class="col-lg-6">
 								<div class="p-5">
 									<div class="text-center">
-										<h1 class="h4 text-gray-900 mb-4">로그인</h1>
-									</div>
+										<h1 class="h4 text-gray-900 mb-5" style="font-size : 30px">로그인</h1>
+									</div><hr>
 									<form class="user" action="login.do" method="post"
 										name="loginfindscreen">
 										<div class="form-group">
@@ -120,55 +120,57 @@
 	<script src="js/demo/chart-pie-demo.js"></script>
 	
 	<script>
-		Kakao.init('b2bbcde9516f44c6e5390f485167253f'); //발급받은 키 중 javascript키를 사용해준다.
-		console.log(Kakao.isInitialized()); // sdk초기화여부판단
-		
-		//카카오로그인
-		function kakaoLogin() {
-			Kakao.Auth.login({
-				success : function(response) {
-					Kakao.API.request({
-						url : '/v2/user/me',
-						success : function(response) {
-							$.ajax({
-								type : "post",
-								url : "snsLogin.do",
-								data : {
-									"kakao" : response.kakao_account.email
-								},
-								dataType : "text",
-								success : function(data) {
-									console.log(data)
-									location.href = 'home.do'
-								}
-							})
-						},
-						fail : function(error) {
-							console.log(error)
-						},
-					})
-				},
-				fail : function(error) {
-					console.log(error)
-				},
-			})
-		}
-		//카카오로그아웃  
-		function kakaoLogout() {
-			if (Kakao.Auth.getAccessToken()) {
+	Kakao.init('b2bbcde9516f44c6e5390f485167253f'); //발급받은 키 중 javascript키를 사용해준다.
+	console.log(Kakao.isInitialized()); // sdk초기화여부판단
+	//카카오로그인
+	function kakaoLogin() {
+		Kakao.Auth.login({
+			success : function(response) {
 				Kakao.API.request({
-					url : '/v1/user/unlink',
+					url : '/v2/user/me',
 					success : function(response) {
-						console.log(response)
+						$.ajax({
+							type : "post",
+							url : "snsLogin.do",
+							data : {
+								"kakao" : response.kakao_account.email
+							},
+							dataType : "text",
+							success : function(data) {
+								if (data == "1") {
+									location.href = 'home.do';
+								} else if (data == "2") {
+									location.href = 'join.do';
+								}
+							}
+						})
 					},
 					fail : function(error) {
 						console.log(error)
 					},
 				})
-				Kakao.Auth.setAccessToken(undefined)
-			}
+			},
+			fail : function(error) {
+				console.log(error)
+			},
+		})
+	}
+	//카카오로그아웃  
+	function kakaoLogout() {
+		if (Kakao.Auth.getAccessToken()) {
+			Kakao.API.request({
+				url : '/v1/user/unlink',
+				success : function(response) {
+					console.log(response)
+				},
+				fail : function(error) {
+					console.log(error)
+				},
+			})
+			Kakao.Auth.setAccessToken(undefined)
 		}
-	</script>
+	}
+</script>
 	
 </body>
 </html>

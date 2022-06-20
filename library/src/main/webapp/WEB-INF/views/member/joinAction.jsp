@@ -35,8 +35,8 @@ int joinAccount = dao.join(vo);
 <font color="blue" size ="6"><%=name%></font><font size="5">님의 가입을 축하드립니다.</font>
 
 <br><br><br><br>
-<input type="button" value ="로그인 하기" onclick="location.href='loginForm.do'" style="margin-right: 50px; padding: 5px; padding-right:15px; padding-left:15px">
-<input type="button" value ="홈으로" onclick="location.href='home.do'" style="padding: 5px; padding-right:15px; padding-left:15px">
+<input type="button"  class="btn btn-info" value ="로그인 하기" onclick="location.href='loginForm.do'" style="margin-right: 50px; padding: 5px; padding-right:15px; padding-left:15px">
+<input type="button" class="btn btn-outline-success" value ="홈으로" onclick="location.href='home.do'" style="padding: 5px; padding-right:15px; padding-left:15px">
 
 </div><br><br><br>
 

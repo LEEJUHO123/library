@@ -1,22 +1,30 @@
+<%@page import="co.team.library.book.vo.BookVO"%>
+<%@page import="co.team.library.book.serviceImpl.BookServiceImpl"%>
+<%@page import="co.team.library.book.service.BookService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+
 </head>
 <body>
+
 	<!-- Breadcrumb Section Begin -->
-	<section class="breadcrumb-section set-bg"
-		data-setbg="img/breadcrumb.jpg">
+	<section class="breadcrumb-section set-bg" data-setbg="img/banner3.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>전권집</h2>
+						<h2>상세보기</h2>
 						<div class="breadcrumb__option">
-							<a href="home.do">Home</a> <a href="home.do">임시목록</a> <span>전권집</span>
+							<a href="home.do">Home</a> <a href="home.do">상세보기</a>
 						</div>
 					</div>
 				</div>
@@ -49,43 +57,13 @@
 				</div>
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
-						<h3>반지의 제왕 1-3권+호빗 세트</h3>
-						<div class="product__details__rating">
-							<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-								class="fa fa-star-half-o"></i> <span>(18 reviews)</span>
-						</div>
-						<div class="product__details__price">148,500원</div>
-						<p>20세기 판타지 문학의 걸작 『반지의 제왕』, 새롭게 태어나다! 국내 최초 60주년판 완역 전면 개정!
+						<h4>${book.bookTitle }</h4>
+						<h5>${book.writer }</h5>
+						<h5 id="bookCode" name="bookCode">${book.bookCode }</h5>
 
-							모든 힘을 지배할 절대반지를 갖게 된 호빗 ‘프로도’가 악의 세력을 물리치고 절대반지를 파괴하기 위해 목숨을 건
-							여정을 떠나는 판타지 서사 『반지의 제왕』(전 3권) 이 2021년 북이십일 아르테에서 출간되었다. 『반지의 제왕』이
-							처음 세상에 나온 것은 1954년이다. 톨킨은 쇄를 거듭할 때마다 수정을 진행했고 독자들은 변경된 내용을 기록하면서
-							책의 완성도를 높여나갔다. 2004년 하퍼콜린스에서 출간된 50주년 기념판의 서문에서 편집자는 초판에 비해
-							300~400개의 수정이 이루어졌다고 밝혔고, 이후 크리스토퍼 톨킨이 편집에 참여하여 추가적인 수정을 진행한 60주년
-							기념판이 2014년에 출간되었다.</p>
-						<div class="product__details__quantity">
-							<div class="quantity">
-								<div class="pro-qty">
-									<input type="text" value="1">
-								</div>
-							</div>
-						</div>
-						<a href="#" class="primary-btn">ADD TO CARD</a> <a href="#"
-							class="heart-icon"><span class="icon_heart_alt"></span></a>
-						<ul>
-							<li><b>Availability</b> <span>In Stock</span></li>
-							<li><b>Shipping</b> <span>01 day shipping. <samp>Free
-										pickup today</samp></span></li>
-							<li><b>Weight</b> <span>0.5 kg</span></li>
-							<li><b>Share on</b>
-								<div class="share">
-									<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-										class="fa fa-twitter"></i></a> <a href="#"><i
-										class="fa fa-instagram"></i></a> <a href="#"><i
-										class="fa fa-pinterest"></i></a>
-								</div></li>
-						</ul>
+						<p>내용부분</p>
+						<div class="product__details__quantity"></div>
+						<a href="#" class="primary-btn" onclick="rentalBook();">대여하기</a>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -178,95 +156,34 @@
 			</div>
 		</div>
 	</section>
-	<!-- Product Details Section End -->
 
-	<!-- Related Product Section Begin -->
-	<section class="related-product">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title related__product__title">
-						<h2>Related Product</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3 col-md-4 col-sm-6">
-					<div class="product__item">
-						<div class="product__item__pic set-bg"
-							data-setbg="img/product/product-1.jpg">
-							<ul class="product__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-							</ul>
-						</div>
-						<div class="product__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6">
-					<div class="product__item">
-						<div class="product__item__pic set-bg"
-							data-setbg="img/product/product-2.jpg">
-							<ul class="product__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-							</ul>
-						</div>
-						<div class="product__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6">
-					<div class="product__item">
-						<div class="product__item__pic set-bg"
-							data-setbg="img/product/product-3.jpg">
-							<ul class="product__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-							</ul>
-						</div>
-						<div class="product__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-4 col-sm-6">
-					<div class="product__item">
-						<div class="product__item__pic set-bg"
-							data-setbg="img/product/product-7.jpg">
-							<ul class="product__item__pic__hover">
-								<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								<li><a href="#"><i class="fa fa-retweet"></i></a></li>
-								<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-							</ul>
-						</div>
-						<div class="product__item__text">
-							<h6>
-								<a href="#">Crab Pool Security</a>
-							</h6>
-							<h5>$30.00</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Related Product Section End -->
+	<script>
+		function rentalBook() {
+			let bookCode = document.getElementById("bookCode").innerText;
+			console.log(bookCode);
+		
+			$.ajax({
+				url : "rentalBook.do",
+				method : "POST",
+				dataType : "json",
+				data : {
+					"bookCode" : bookCode
+				},
+				success : function(data) {
+					console.log(data);
+					if (data == 1) {
+						alert("대여성공")
+						console.log("1")
+					}else {
+						console.log("2")
+						alert("대여실패")
+					}
+				}
+
+			});
+
+		}
+	</script>
 
 </body>
 </html>

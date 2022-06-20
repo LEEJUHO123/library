@@ -15,14 +15,14 @@
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="home.do"><img src="img/logo.png" alt=""></a>
+			<a href="home.do"><img src="img/yedam.png" alt=""></a>
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
 				<c:if test="${not empty id }">
 					<ul>
 						<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
-						<li><a href="#">마이페이지</a>
+						<li><a href="mypageHome.do">마이페이지</a>
 						<li><a href="logout.do">Logout</a></li>
 					</ul>
 				</c:if>
@@ -30,36 +30,29 @@
 					<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
 					<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>
 				</c:if>
-
 			</ul>
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
 				<li class="active">
 				<li><a href="books.do">도서목록</a></li>
-				<li><a href="#">임시목록</a>
+				<li><a href="#">Q&A</a>
 					<ul class="header__menu__dropdown">
-						<li><a href="bookDetails.do">도서상세</a></li>
-						<li><a href="bookCart.do">담아두기</a></li>
-						<li><a href="rentalBook.do">대여하기</a></li>
+						<li><a href="qnaList.do">문의목록</a></li>
+						<c:if test="${not empty id }">
+							<li><a href="qnaInputForm.do">문의작성</a></li>
+						</c:if>
 					</ul></li>
-				<li><a href="contact.do">Contact</a></li>
-				<li><a href="#">QnA</a></li>
+				<li><a href="contact.do">찾아오는길</a></li>
 				<c:if test="${id eq 'abc@abc.com' }">
-					<li><a href="#">관리자메뉴</a></li>
+					<li><a href="#">관리자페이지</a></li>
 				</c:if>
 			</ul>
 		</nav>
 		<div id="mobile-menu-wrap"></div>
-		<div class="header__top__right__social">
-			<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-				class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a>
-			<a href="#"><i class="fa fa-pinterest-p"></i></a>
-		</div>
 		<div class="humberger__menu__contact">
 			<ul>
-				<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-				<li>Free Shipping for all Order of $99</li>
+				<li><i class="fa fa-envelope"></i> abc@abc.com</li>
 			</ul>
 		</div>
 	</div>
@@ -72,8 +65,7 @@
 					<div class="col-lg-6 col-md-6">
 						<div class="header__top__left">
 							<ul>
-								<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-								<li>Free Shipping for all Order of $99</li>
+								<li><i class="fa fa-envelope"></i> abc@abc.com</li>
 							</ul>
 						</div>
 					</div>
@@ -83,7 +75,7 @@
 								<ul>
 									<li><a href="#"><i class="fa fa-bell"></i> <span>1</span></a></li>
 									<li>${name }님
-									<li><a href="#">마이페이지</a>
+									<li><a href="mypageHome.do">마이페이지</a>
 									<li><a href="logout.do">Logout</a></li>
 								</ul>
 							</c:if>
@@ -91,7 +83,7 @@
 								<div class="header__top__right__auth">
 									<ul>
 										<li><a href="loginForm.do"><i class="fa fa-user"></i>Login</a></li>
-										<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>										
+										<li><a href="join.do"><i class="fa fa-user-plus"></i>Join</a></li>
 									</ul>
 								</div>
 							</c:if>
@@ -104,7 +96,7 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="/library"><img src="img/logo.png" alt=""></a>
+						<a href="/library"><img src="img/yedam.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-9">
@@ -112,16 +104,16 @@
 						<ul>
 							<li class="active">
 							<li><a href="books.do">도서목록</a></li>
-							<li><a href="#">임시목록</a>
+							<li><a href="#">Q&A</a>
 								<ul class="header__menu__dropdown">
-									<li><a href="bookDetails.do">도서상세</a></li>
-									<li><a href="bookCart.do">담아두기</a></li>
-									<li><a href="rentalBook.do">대여하기</a></li>
+									<li><a href="qnaList.do">문의목록</a></li>
+									<c:if test="${not empty id }">
+										<li><a href="qnaInputForm.do">문의작성</a></li>
+									</c:if>
 								</ul></li>
-							<li><a href="contact.do">Contact</a></li>
-							<li><a href="#">QnA</a></li>
+							<li><a href="contact.do">찾아오는길</a></li>
 							<c:if test="${id eq 'abc@abc.com' }">
-								<li><a href="admin.do">관리자메뉴</a></li>
+								<li><a href="admin.do">관리자페이지</a></li>
 							</c:if>
 						</ul>
 					</nav>
@@ -143,31 +135,40 @@
 							<i class="fa fa-bars"></i> <span>전체 메뉴</span>
 						</div>
 						<ul style="display: none;">
-							<li><a href="#">총류</a></li>
-							<li><a href="#">철학서적</a></li>
-							<li><a href="#">종교서적</a></li>
-							<li><a href="#">인문사회</a></li>
-							<li><a href="#">순수문학</a></li>
-							<li><a href="#">예술서적</a></li>
-							<li><a href="#">언어관련</a></li>
-							<li><a href="#">일반문학</a></li>
-							<li><a href="#">역사서적</a></li>
+							<li><a href="bookCategoryList.do?category=000" id="category"
+								name="category" val="000">총류</a></li>
+							<li><a href="bookCategoryList.do?category=100" id="category"
+								name="category" val="100">철학서적</a></li>
+							<li><a href="bookCategoryList.do?category=200" id="category"
+								name="category" val="200">종교서적</a></li>
+							<li><a href="bookCategoryList.do?category=300" id="category"
+								name="category" val="300">인문사회</a></li>
+							<li><a href="bookCategoryList.do?category=400" id="category"
+								name="category" val="400">순수문학</a></li>
+							<li><a href="bookCategoryList.do?category=600" id="category"
+								name="category" val="600">예술서적</a></li>
+							<li><a href="bookCategoryList.do?category=700" id="category"
+								name="category" val="700">언어관련</a></li>
+							<li><a href="bookCategoryList.do?category=800" id="category"
+								name="category" val="800">일반문학</a></li>
+							<li><a href="bookCategoryList.do?category=900" id="category"
+								name="category" val="900">역사서적</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
 					<div class="hero__search">
 						<div class="hero__search__form">
-							<form action="#">
+							<form action="bookSearch.do" method="post">
 								<div class="hero__search__categories">
-									<select class="book__search">
-										<option selected>전체검색</option>
-										<option>제목</option>
-										<option>카테고리</option>
-										<option>저자</option>
+									<select class="book__search" id="key" name="key">
+										<option id="keyval" value="allList" selected>전체검색</option>
+										<option id="keyval" value="title">제목</option>
+										<option id="keyval" value="writer">저자</option>
 									</select>
 								</div>
-								<input type="text" placeholder="What do yo u need?">
+								<input type="text" id="keyword" name="keyword"
+									placeholder="검색어를 입력하세요">
 								<button type="submit" class="site-btn">SEARCH</button>
 							</form>
 						</div>
@@ -176,8 +177,8 @@
 								<i class="fa fa-phone"></i>
 							</div>
 							<div class="hero__search__phone__text">
-								<h5>(053)206-5798</h5>
-								<span>AN 09:00 - PM 18:00 </span>
+								<h5>(053)421-2460</h5>
+								<span>AM 09:00 - PM 18:00 </span>
 							</div>
 						</div>
 					</div>
@@ -186,7 +187,7 @@
 		</div>
 	</section>
 	<!-- Hero Section End -->
-	
-	
+
+
 </body>
 </html>

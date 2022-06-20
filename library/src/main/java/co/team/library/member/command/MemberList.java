@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import co.team.library.comm.Command;
 import co.team.library.member.service.MemberService;
 import co.team.library.member.serviceImpl.MemberServiceImpl;
-import co.team.library.member.vo.MemberVO;
 import co.team.library.member.vo.BoardPage;
+import co.team.library.member.vo.MemberVO;
+import co.team.library.rental.serviceImpl.RentalServiceImpl;
 
 public class MemberList implements Command {
 

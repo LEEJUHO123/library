@@ -15,10 +15,15 @@ public class Run implements Command {
 		MemberService dao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 			
-		String id = request.getParameter("id");
-		int result = dao.blackUpdate(id);
+		String id = request.getParameter("blackId"); // jsp에서 blackId값을 받아옴
+		vo.setId(id);
+		int result = dao.blackUpdate(vo);
+		System.out.println(result);
+		if(result == 1) {
+			return "ajax:" + 1;
+		}else {
+			return "ajax:" + 2;	
+		}
 
-		return "ajax:" + result;
 	}
-
 }

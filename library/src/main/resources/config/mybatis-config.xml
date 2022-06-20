@@ -20,6 +20,9 @@
   </environments>
   <mappers>
      <mapper resource="co/team/library/member/service/Member-map.xml"/>
-     <mapper resource="co/team/library/qna/service/qna-map.xml"/>
+     <mapper resource="co/team/library/qna/service/Qna-map.xml"/>
+     <mapper resource="co/team/library/reply/service/Reply-map.xml"/>
+     <mapper resource="co/team/library/rental/service/Rental-Map.xml"/>
+     <mapper resource="co/team/library/book/service/book-map.xml"/>
   </mappers>
 </configuration>

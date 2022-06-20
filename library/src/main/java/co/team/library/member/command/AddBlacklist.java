@@ -40,12 +40,7 @@ public class AddBlacklist implements Command {
 		members = dao.addBlackSelectList(page);
 		request.setAttribute("paging", page);
 		request.setAttribute("members", members);
-		
-//		List<MemberVO> list = new ArrayList<>();
-//		for(MemberVO vo : list) {
-//			dao.blackUpdate();
-//		}
-		
+			
 		return "administrator/addBlacklist";
 	}
 

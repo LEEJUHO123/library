@@ -20,18 +20,18 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<BookVO> searchBookCategory(String category) {
-		return map.searchBookCategory(category);
+	public List<BookVO> searchBookCategory(BookVO vo) {
+		return map.searchBookCategory(vo);
 	}
 
 	@Override
-	public List<BookVO> searchBookWriter(String writer) {
-		return map.searchBookWriter(writer);
+	public List<BookVO> searchBookWriter(BookVO vo) {
+		return map.searchBookWriter(vo);
 	}
 
 	@Override
-	public List<BookVO> searchBookSearch(String keyword) {
-		return map.searchBookSearch(keyword);
+	public List<BookVO> searchTitle(BookVO vo) {
+		return map.searchTitle(vo);
 	}
 
 	@Override
@@ -42,6 +42,26 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public int bookDelete(String bookCode) {
 		return map.bookDelete(bookCode);
+	}
+
+	@Override
+	public List<BookVO> rentalChart() {
+		return map.rentalChart();
+	}
+
+	@Override
+	public List<BookVO> categoryChart() {
+		return map.categoryChart();
+	}
+	
+	@Override
+	public BookVO bookDetail(String title) {
+		return map.bookDetail(title);
+	}
+	
+	@Override
+	public List<BookVO> searchKeyword(BookVO vo) {
+		return map.searchKeyword(vo);
 	}
 
 }

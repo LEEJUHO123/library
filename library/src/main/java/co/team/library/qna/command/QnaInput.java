@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import co.team.library.comm.Command;
 import co.team.library.qna.service.QnaService;
 import co.team.library.qna.serviceImpl.QnaServiceImpl;
-import co.team.library.qnavo.QnaVO;
+import co.team.library.qna.vo.QnaVO;
 
 public class QnaInput implements Command {
 
@@ -21,6 +21,6 @@ public class QnaInput implements Command {
 			vo.setContent(request.getParameter("content"));
 			vo.setWdate(Date.valueOf(request.getParameter("wdate")));
 		int n = dao.qnaInsert(vo);
-		return "home/home";
+		return "qnaList.do";
 	}
 }
