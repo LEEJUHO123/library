@@ -44,4 +44,15 @@ public class BookServiceImpl implements BookService {
 		return map.bookDelete(bookCode);
 	}
 
+	@Override
+	public List<BookVO> rentalChart() {
+		return map.rentalChart();
+	}
+
+	@Override
+	public List<BookVO> categoryChart() {
+		return map.categoryChart();
+	}
+
+
 }

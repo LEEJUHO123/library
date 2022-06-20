@@ -5,22 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>블랙리스트 목록</title>
 </head>
 <body>
 
 	<div align="center">
-		<h1>블랙리스트 게시판</h1>
-		<p>블랙리스트 게시판입니다.</p>
-		<div>
-			<div>
-				<h6>블랙리스트 목록</h6>
-			</div>
-			<div>
-				<div>
-					<table border="1" width="90%">
+	<div class="col-lg-12">
+		<div class="section-title from-blog__title">
+			<h2>블랙리스트 목록</h2>
+			<p>
+		</div>
+	</div>
+				<div class="container">
+					<table width="100%" class="table table-striped">
 						<thead>
-							<tr>
+							<tr align="center">
 								<th>아이디</th>
 								<th>비밀번호</th>
 								<th>이름</th>
@@ -31,7 +30,7 @@
 						</thead>
 						<tbody>
 							<c:forEach items="${members }" var="m">
-								<tr>
+								<tr align="center">
 									<td>${m.id }</td>
 									<td>${m.password }</td>
 									<td>${m.name }</td>
@@ -42,6 +41,8 @@
 							</c:forEach>
 						</tbody>
 					</table>
+					
+					<button type="button" onclick="location.href='admin.do'" class="btn btn-outline-danger" >뒤로가기</button>
 
 					<div style="display: block; text-align: center;">
 						<c:if test="${paging.startPage != 1 }">
@@ -67,7 +68,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 </body>
 </html>

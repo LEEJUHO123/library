@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import co.team.library.comm.DataSource;
+import co.team.library.member.vo.BoardPage;
 import co.team.library.rental.service.RentalMapper;
 import co.team.library.rental.service.RentalService;
 import co.team.library.rental.vo.RentalVO;
@@ -26,6 +27,16 @@ public class RentalServiceImpl implements RentalService{
 	@Override
 	public List<RentalVO> nowRentalList(String id) {
 		return map.nowRentalList(id);
+	}
+
+	@Override
+	public List<RentalVO> memberRentalList(BoardPage page) {
+		return map.memberRentalList(page);
+	}
+
+	@Override
+	public int boardListCount3() {
+		return map.boardListCount3();
 	}
 
 }

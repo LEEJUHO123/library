@@ -15,13 +15,27 @@
 	
 	<select id="bookWriter" parameterType="String" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
-		WHERE WRITER LIKE '%' ||#{writer}|| '%';
+		WHERE WRITER LIKE '%' ||#{writer}|| '%'
 		ORDER BY RENTALCOUNT,BOOKTITLE
 	</select>
 
 	<select id="bookSearch" parameterType="String" resultType="co.team.library.book.vo.BookVO">
 		SELECT * FROM BOOKLIST
-		WHERE BOOKTITLE LIKE '%'|| #{keyword} ||'%';
+		WHERE BOOKTITLE LIKE '%'|| #{keyword} ||'%'
+	</select>
+	
+	<select id="rentalChart" resultType="co.team.library.book.vo.BookVO">
+	 	SELECT B.BOOKTITLE AS BOOKTITLE, COUNT(*) AS RENTALCOUNT
+		FROM RENTAL A LEFT OUTER JOIN BOOKLIST B
+		ON A.BOOKCODE = B.BOOKCODE
+		GROUP BY B.BOOKTITLE
+	</select>
+	
+	<select id="categoryChart" resultType="co.team.library.book.vo.BookVO">
+	SELECT B.CATEGORY, COUNT(*) AS RENTALCOUNT
+	FROM RENTAL A LEFT OUTER JOIN BOOKLIST B
+	ON A.BOOKCODE = B.BOOKCODE
+	GROUP BY B.CATEGORY
 	</select>
 	
 	<insert id="bookInsert" parameterType="co.team.library.book.vo.BookVO">

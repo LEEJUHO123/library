@@ -47,7 +47,7 @@
 					<li><a href="qnaInputForm.do">문의작성</a></li>
 				</ul></li>
       <c:if test="${id eq 'abc@abc.com' }">
-					<li><a href="#">관리자메뉴</a></li>
+					<li><a href="admin.do">관리자메뉴</a></li>
 				</c:if>
 
 			</ul>
